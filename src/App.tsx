@@ -1,45 +1,83 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Component, useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Instructor, User } from "./type";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { SignUp } from "../pages/SignUp";
+import { SignIn } from "../pages/SignIn";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentInstructor, setCurrentInstructor] = useState<Instructor | null>(
+    null
+  );
 
+  let navigate = useNavigate();
+
+  function signInUser(data: any) {
+    setCurrentUser(data.user);
+    localStorage.token = data.token;
+    // navigate("/home");
+  }
+  function signInInstructor(data: any) {
+    setCurrentInstructor(data.instructor);
+    localStorage.token = data.token;
+  }
+
+  function signOutUser() {
+    setCurrentUser(null);
+    localStorage.removeItem("token");
+    navigate("/signIn");
+  }
+
+  useEffect(() => {
+    if (localStorage.token) {
+      if (localStorage.user === "user")
+        fetch(`http://localhost:4166/validate/user`, {
+          headers: {
+            Authorization: localStorage.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.error) {
+              alert(data.error);
+            } else {
+              signInUser(data);
+            }
+          });
+    } else
+      fetch(`http://localhost:4166/validate/instructor`, {
+        headers: {
+          Authorization: localStorage.token,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.error) {
+            alert(data.error);
+          } else {
+            signInInstructor(data);
+          }
+          console.log(data);
+        });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Routes>
+        <Route path="/signUp" element={<SignUp signInUser={signInUser} />} />
+        <Route
+          path="/signIn"
+          element={
+            <SignIn
+              signInUser={signInUser}
+              signInInstructor={signInInstructor}
+            />
+          }
+        />
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
