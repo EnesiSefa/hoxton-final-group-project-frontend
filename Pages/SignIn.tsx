@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { port } from "../src/port";
 
 type Props = {
   signInUser: (data: any) => void;
@@ -10,12 +11,14 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
   let navigate = useNavigate();
   return (
     <div>
+      <h2>
+        <Link to={"/signUp"}> go to Sign Up</Link>
+      </h2>
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           className="space-y-6"
           onSubmit={(event) => {
             event.preventDefault();
-
             const user = {
               //@ts-ignore
               email: event.target.email.value,
@@ -25,7 +28,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
             console.log(user);
             //@ts-ignore
             if (event.target.answer.value === "user") {
-              fetch(`http://localhost:4166/sign-in/user`, {
+              fetch(`http://localhost:${port}/sign-in/user`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -38,7 +41,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                     alert(data.error);
                   } else {
                     signInUser(data);
-                    // navigate("/blog");
+                    navigate("/homePage");
                   }
                 });
               localStorage.user = "user";
@@ -49,8 +52,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 //@ts-ignore
                 password: event.target.password.value,
               };
-
-              fetch(`http://localhost:4166/sign-in/instructor`, {
+              fetch(`http://localhost:${port}/sign-in/instructor`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -73,7 +75,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
           <div className="flex flex-col justify-center py-12">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-blue-900 mb-5">
-                Sing In As{" "}
+                Sing In As
               </h2>
               <select name="answer">
                 <option value="user" className="font-bold  text-blue-500">

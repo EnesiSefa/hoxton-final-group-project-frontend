@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { port } from "../src/port";
 
 type Props = {
   signInUser: (data: any) => void;
@@ -24,7 +26,7 @@ export function SignUp({ signInUser }: Props) {
               //@ts-ignore
               password: event.target.password.value,
             };
-            fetch(`http://localhost:4166/sign-up/user`, {
+            fetch(`http://localhost:${port}/sign-up/user`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
