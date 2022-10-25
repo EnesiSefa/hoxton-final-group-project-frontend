@@ -3,9 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Instructor, User } from "./type";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { SignUp } from "../pages/SignUp";
-import { SignIn } from "../pages/SignIn";
-import { HomePage } from "../pages/HomePage";
+import { SignUp } from "../Pages/SignUp";
+import { SignIn } from "../Pages/SignIn";
+import { HomePage } from "../Pages/HomePage";
+import { Header } from "../Components/Header";
 import { port } from "./port";
 
 function App() {
@@ -68,10 +69,11 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <Header currentUser={currentUser} signOutUser={signOutUser} />
       <Routes>
-        <Route index element={<Navigate replace to="/signUp" />} />
+        {/* <Route index element={<Navigate replace to="/signUp" />} /> */}
 
-        <Route path="/homePage" element={<HomePage />} />
+        {/* <Route path="/homePage" element={<HomePage />} /> */}
 
         <Route path="/signUp" element={<SignUp signInUser={signInUser} />} />
         <Route

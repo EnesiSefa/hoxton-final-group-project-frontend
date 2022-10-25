@@ -19,8 +19,6 @@ export function SignUp({ signInUser }: Props) {
               name: event.target.name.value,
               //@ts-ignore
               lastName: event.target.lastName.value,
-              //   @ts-ignore
-              profilePic: event.target.profilePic.value,
               // @ts-ignore
               email: event.target.email.value,
               //@ts-ignore
@@ -63,13 +61,13 @@ export function SignUp({ signInUser }: Props) {
                   placeholder="Enter your lastName ... "
                 />
               </div>
-              <div>
+              {/* <div>
                 <input
                   className="w-full rounded-md border border-blue-300 p-2 mt-3"
                   name="image"
                   placeholder="Enter your image url..."
                 />
-              </div>
+              </div> */}
               <div>
                 <input
                   className="w-full rounded-md border border-blue-300 p-2 mt-3"
@@ -82,7 +80,7 @@ export function SignUp({ signInUser }: Props) {
               <div>
                 <input
                   className="w-full rounded-md border border-blue-300 p-2 mt-3"
-                  type="password"
+                  type="text"
                   name="password"
                   placeholder="Enter your password"
                   required
