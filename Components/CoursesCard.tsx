@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export function CoursesCard({ courses }) {
+import { Course } from "../src/type";
+type Props={
+  course : Course
+}
+export function CoursesCard({ course }: Props) {
   return (
     <div>
       <li className="courses">
-        <Link to={`/course/${courses.id}`} style={{ textDecoration: `none` }}>
+        <Link to={`/course/${course.id}`} style={{ textDecoration: `none` }}>
           <article className="courses-item">
-            <img src={`${courses.image}`} alt={courses.name} width="100" />
-            <h4>{courses.title}</h4>
-            <h2>{courses.price}$</h2>
+            <img src={`${course.image}`} alt={course.title} width="100" />
+            <h4>{course.title}</h4>
+            <h2>{course.price}$</h2>
           </article>
         </Link>
       </li>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../Components/Header";
-import { Instructor, User } from "../src/type";
+import { Course, Instructor, User } from "../src/type";
 import { CoursesCard } from "../components/CoursesCard";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   currentInstructor: Instructor | null;
 };
 export function HomePage({signOutUser,currentUser,currentInstructor}:Props) {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   useEffect(() => {
     fetch("http://localhost:4167/courses")
       .then((resp) => resp.json())
@@ -30,8 +30,8 @@ export function HomePage({signOutUser,currentUser,currentInstructor}:Props) {
     // </div>
     <section>
         <ul className="courses-ul">
-          {courses.map(courses => (
-            <CoursesCard key={courses.id} courses={courses} />
+          {courses.map(course => (
+            <CoursesCard key={course.id} course={course} />
           ))}
         </ul>
       </section>
