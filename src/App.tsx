@@ -84,9 +84,10 @@ function App() {
           path="/homePage"
           element={
             <HomePage
-              signOutUser={signOutUser}
-              currentUser={currentUser}
-              currentInstructor={currentInstructor}
+              // signOutUser={signOutUser}
+              // currentUser={currentUser}
+              // currentInstructor={currentInstructor}
+              // commented for the moment
             />
           }
         />

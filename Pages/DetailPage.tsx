@@ -8,7 +8,6 @@ type Props = {
 };
 export function DetailPage({ currentUser }: Props) {
   const [course, setCourse] = useState<Course | null>(null);
-  const [reviews, setReviews] = useState<Review[]>([]);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -71,6 +70,8 @@ export function DetailPage({ currentUser }: Props) {
                       .then((courseFromServer) => setCourse(courseFromServer));
                   }
                 });
+                 // @ts-ignore
+                e.target.reset();
             }}
           >
             <label htmlFor="review">
