@@ -70,13 +70,20 @@ function App() {
   }, []);
   return (
     <div className="App">
-      
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
 
         {/* <Route path="/homePage" element={<HomePage />} /> */}
 
-        <Route path="/signUp" element={<SignUp signInUser={signInUser} signInInstructor={signInInstructor} />} />
+        <Route
+          path="/signUp"
+          element={
+            <SignUp
+              signInUser={signInUser}
+              signInInstructor={signInInstructor}
+            />
+          }
+        />
         <Route
           path="/signIn"
           element={
@@ -92,5 +99,3 @@ function App() {
 }
 
 export default App;
-
-// test
