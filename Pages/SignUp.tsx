@@ -4,8 +4,9 @@ import { port } from "../src/port";
 
 type Props = {
   signInUser: (data: any) => void;
+  signInInstructor: (data: any) => void;
 };
-export function SignUp({ signInUser }: Props) {
+export function SignUp({ signInUser, signInInstructor }: Props) {
   return (
     <div>
       <div className="bg-white py-8 shadow sm:rounded-lg sm:px-10">
@@ -13,35 +14,81 @@ export function SignUp({ signInUser }: Props) {
           className="space-y-6"
           onSubmit={(event) => {
             event.preventDefault();
-
             const user = {
               //@ts-ignore
               name: event.target.name.value,
               //@ts-ignore
-              lastName: event.target.lastName.value,
-              // @ts-ignore
+              lastName: event.target.name.value,
+              //@ts-ignore
               email: event.target.email.value,
               //@ts-ignore
               password: event.target.password.value,
             };
-            fetch(`http://localhost:${port}/sign-up/user`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(user),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.error) {
-                  alert(data.error);
-                } else {
-                  signInUser(data);
-                }
-              });
             console.log(user);
+            //@ts-ignore
+            if (event.target.answer.value === "user") {
+              fetch(`http://localhost:${port}/sign-up/user`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+              })
+                .then((resp) => resp.json())
+                .then((data) => {
+                  if (data.error) {
+                    alert(data.error);
+                  } else {
+                    signInUser(data);
+                    // navigate("/homePage");
+                  }
+                });
+              localStorage.user = "user";
+            } else {
+              const instructor = {
+                //@ts-ignore
+                name: event.target.name.value,
+                //@ts-ignore
+                lastName: event.target.name.value,
+                //@ts-ignore
+                email: event.target.email.value,
+                //@ts-ignore
+                password: event.target.password.value,
+              };
+              fetch(`http://localhost:${port}/sign-up/instructor`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(instructor),
+              })
+                .then((resp) => resp.json())
+                .then((data) => {
+                  if (data.error) {
+                    alert(data.error);
+                  } else {
+                    signInInstructor(data);
+                  }
+                });
+              localStorage.instructor = "instructor";
+            }
           }}
         >
+          <div className="flex flex-col justify-center py-12">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-blue-900 mb-5">
+                Sing Up As
+              </h2>
+              <select name="answer">
+                <option value="user" className="font-bold  text-blue-500">
+                  <h2 className="text-blue-500 font-medium">User</h2>
+                </option>
+                <option value="instructor" className="font-bold  text-blue-500">
+                  Instructor
+                </option>
+              </select>
+            </div>
+          </div>
           <div className="flex flex-col justify-center py-12 border-gray-400">
             <div className="text-center">
               <h2 className="text-3xl font-bold  text-blue-600">Sign Up</h2>
