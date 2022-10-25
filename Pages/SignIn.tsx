@@ -104,7 +104,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
               />
             </div>
             <button
-              // className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
+              className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
               onChange={() => {}}
             >
               Sign In
