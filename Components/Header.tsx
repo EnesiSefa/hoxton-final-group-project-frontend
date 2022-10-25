@@ -11,12 +11,14 @@ type Props = {
 export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
   return (
     <div>
-      <header>
-        <ul>
+      
+        <ul className="header-ul">
           {currentUser ? (
-            <>
+           <nav className="header">
+           <Link to='/homePage'><h2 className="logo">Online Courses</h2></Link>
+            
               <Link to="/courses">
-                <li className="text-1xl text-gray-800 font-sans bg-gradient-to-br ">
+                <li className="header-li">
                   Courses
                 </li>
               </Link>
@@ -34,44 +36,48 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </div>
               </div>
             </li> */}
-              //
+             
               <Link to={"/categories"}>
-                //
-                <li className="text-1xl text-gray-800 font-sans bg-gradient-to-br">
-                  // Categories
+          
+                <li className="header-li">
+                Categories
                 </li>
-                //
+               
               </Link>
               <Link to={"/favorite"}>
-                <li className="text-1xl text-gray-800 font-sans bg-gradient-to-br">
+                <li className="header-li">
                   Favorite
                 </li>
               </Link>
               <li>
                 <button
-                  className="text-1xl text-gray-800 font-sans bg-gradient-to-br"
+                  className="logIn-btn"
                   onClick={signOutUser}
                 >
                   LogOut
                 </button>
               </li>
-            </>
+              </nav>
           ) : (
-            <>
+            <nav className="signIn-signUp">
+            
               <Link to={"/signIn"}>
-                <li className="text-3xl text-gray-500 font-sans bg-gradient-to-br ">
+              <button>
+                <li className="signIn-li">
                   SignIn
                 </li>
+                </button>
               </Link>
+              
               <Link to={"/signUp"}>
-                <li className="text-3xl text-gray-500 font-sans bg-gradient-to-br">
+                <li className="signUp-li">
                   SignUp
                 </li>
               </Link>
-            </>
+            </nav>
           )}
         </ul>
-      </header>
+ 
     </div>
   );
 }
