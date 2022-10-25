@@ -20,9 +20,10 @@ function App() {
   function signInUser(data: any) {
     setCurrentUser(data.user);
     localStorage.token = data.token;
-    localStorage.user = JSON.stringify(data.user);
+    // localStorage.user = JSON.stringify(data.user);
     // navigate("/home");
   }
+
   function signInInstructor(data: any) {
     setCurrentInstructor(data.instructor);
     localStorage.token = data.token;
@@ -30,7 +31,7 @@ function App() {
 
   function signOutUser() {
     setCurrentUser(null);
-    localStorage.removeItem("token");
+    localStorage.clear();
     navigate("/signIn");
   }
 
@@ -69,13 +70,13 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Header currentUser={currentUser} signOutUser={signOutUser} />
+      
       <Routes>
-        {/* <Route index element={<Navigate replace to="/signUp" />} /> */}
+        <Route index element={<Navigate replace to="/signIn" />} />
 
         {/* <Route path="/homePage" element={<HomePage />} /> */}
 
-        <Route path="/signUp" element={<SignUp signInUser={signInUser} />} />
+        <Route path="/signUp" element={<SignUp signInUser={signInUser} signInInstructor={signInInstructor} />} />
         <Route
           path="/signIn"
           element={

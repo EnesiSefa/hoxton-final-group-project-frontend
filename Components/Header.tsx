@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { User } from "../src/type";
+import { Instructor, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
   signOutUser: () => void;
+  currentInstructor: Instructor | null;
 };
 
-export function Header({ currentUser, signOutUser }: Props) {
+export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
   return (
     <div>
       <header>
