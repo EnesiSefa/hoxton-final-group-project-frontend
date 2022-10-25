@@ -15,7 +15,7 @@ export function DetailPage({ currentUser }: Props) {
   useEffect(() => {
     fetch(`http://localhost:${port}/course/${params.id}`)
       .then((resp) => resp.json())
-      .then((pizzaFromServer) => setCourse(pizzaFromServer));
+      .then((courseFromServer) => setCourse(courseFromServer));
   }, []);
   if (course === null) return <h2>Loading...</h2>;
   return (
@@ -65,7 +65,9 @@ export function DetailPage({ currentUser }: Props) {
                   if (data.error) {
                     alert(data.error);
                     console.log(data.error);
-                  }
+                  }else{fetch(`http://localhost:${port}/course/${params.id}`)
+                  .then((resp) => resp.json())
+                  .then((courseFromServer) => setCourse(courseFromServer));}
                 });
               
             }}
