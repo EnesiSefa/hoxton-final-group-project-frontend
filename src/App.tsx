@@ -72,7 +72,7 @@ function App() {
     <div className="App">
       
       <Routes>
-        {/* <Route index element={<Navigate replace to="/signUp" />} /> */}
+        <Route index element={<Navigate replace to="/signIn" />} />
 
         {/* <Route path="/homePage" element={<HomePage />} /> */}
 
