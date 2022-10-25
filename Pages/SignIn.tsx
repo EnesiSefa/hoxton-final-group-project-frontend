@@ -41,7 +41,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                     alert(data.error);
                   } else {
                     signInUser(data);
-                    navigate("/homePage");
+                    // navigate("/homePage");
                   }
                 });
               localStorage.user = "user";
@@ -71,7 +71,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
             }
           }}
         >
-          <div className="flex flex-col justify-center py-12">
+          <div className="Sign-In">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-blue-900 mb-5">
                 Sing In As
@@ -104,7 +104,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
               />
             </div>
             <button
-              className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
+              // className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
               onChange={() => {}}
             >
               Sign In

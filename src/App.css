@@ -82,3 +82,37 @@ margin: 10px;
   border:2px solid red ;
   border-radius: 10%;
 } 
+/* Sign-In */
+.sign-in {
+  display: grid;
+  place-content: center;
+  margin-top: 100px;
+  height: 100%;
+}
+
+.sign-in form {
+  display: grid;
+  gap: 1rem;
+}
+
+.sign-in input {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid royalblue;
+}
+
+.sign-in button {
+  color: white;
+  background-color: var(--header_color_content);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.sign-in button:hover {
+  filter: brightness(1.5);
+}
+
+.sign-in button:active {
+  filter: brightness(0.5);
+}

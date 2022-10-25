@@ -104,7 +104,7 @@ function App() {
             />
           }
         />
-        {/* <Route
+        <Route
           path="/signIn"
           element={
             <SignIn
@@ -112,7 +112,7 @@ function App() {
               signInInstructor={signInInstructor}
             />
           }
-        /> */}
+        />
       </Routes>
     </div>
   );
