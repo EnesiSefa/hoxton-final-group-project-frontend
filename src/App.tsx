@@ -70,11 +70,17 @@ function App() {
   }, []);
   return (
     <div className="App">
+<<<<<<< HEAD
+=======
+       <Header   currentUser ={currentUser} signOutUser={signOutUser} currentInstructor={currentInstructor}/>
+      
+>>>>>>> 28b67b0ae2e4a532228c45709949649613096316
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
 
-        {/* <Route path="/homePage" element={<HomePage />} /> */}
+        <Route path="/homePage" element={<HomePage signOutUser={signOutUser} currentUser={currentUser} currentInstructor={currentInstructor}/>} />
 
+<<<<<<< HEAD
         <Route
           path="/signUp"
           element={
@@ -84,6 +90,9 @@ function App() {
             />
           }
         />
+=======
+        <Route path="/signUp" element={<SignUp signInUser={signInUser}  signInInstructor={signInInstructor} />} />
+>>>>>>> 28b67b0ae2e4a532228c45709949649613096316
         <Route
           path="/signIn"
           element={
