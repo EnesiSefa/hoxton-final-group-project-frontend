@@ -89,7 +89,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
             {/* <h2>Sign In</h2> */}
             <div>
               <input
-                className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                // className="w-full rounded-md border border-blue-300 p-2 mt-3"
                 type="email"
                 name="email"
                 required
@@ -97,14 +97,14 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
             </div>
             <div>
               <input
-                className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                // className="w-full rounded-md border border-blue-300 p-2 mt-3"
                 type="password"
                 name="password"
                 required
               />
             </div>
             <button
-              className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
+              // className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
               onChange={() => {}}
             >
               Sign In

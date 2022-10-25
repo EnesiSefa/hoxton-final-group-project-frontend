@@ -6,6 +6,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp } from "../Pages/SignUp";
 import { SignIn } from "../Pages/SignIn";
 import { HomePage } from "../Pages/HomePage";
+import { DetailPage } from "../Pages/DetailPage";
 import { Header } from "../Components/Header";
 import { port } from "./port";
 
@@ -89,6 +90,10 @@ function App() {
             />
           }
         />
+        <Route
+            path='/course/:id'
+            element={<DetailPage />}
+          />
 
         <Route
           path="/signUp"
@@ -99,7 +104,7 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/signIn"
           element={
             <SignIn
@@ -107,7 +112,7 @@ function App() {
               signInInstructor={signInInstructor}
             />
           }
-        />
+        /> */}
       </Routes>
     </div>
   );
