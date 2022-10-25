@@ -170,11 +170,69 @@ color: white;
   }
 
 
+/* Sign-Up */
+.sign-up {
+  display: grid;
+  place-content: center;
+  margin-top: 50px;
+  height: 100%;
 
-  .signIn-signUp{
-    display:grid;
-    grid-auto-flow: column;
-    place-content: center;
-    gap: 2rem;
+} 
+ .sign-up h2 {
+  font-weight: 900;
+  font-size: x-large;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
 
-  }
+.sign-up form {
+  display: grid;
+  gap: 1.5rem;
+}
+/* .sign-up label {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-top: 10px;
+margin: 60px;
+} */
+.sign-up div {
+ display: grid;
+ margin-top: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.sign-up div input{
+  display: grid;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+}
+.sign-up  button{
+  display: grid;
+  color: white;
+  background-color:red;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 15px;
+  margin-left: 45px;
+  width: 230px;
+  border-radius: 10%;
+  
+}
+.Sing-Up-As{
+  display: grid;
+  place-content: center;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+.sign-up button:hover {
+  filter: brightness(1.5);
+}
+
+.sign-up button:active {
+  filter: brightness(0.5);
+}

@@ -11,9 +11,6 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
   let navigate = useNavigate();
   return (
     <div>
-      <h2>
-        <Link to={"/signUp"}> go to Sign Up</Link>
-      </h2>
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           className="space-y-6"
@@ -103,6 +100,8 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 required
               />
             </div>
+          <p> If you don`t have an accound <Link to={`/SignUp`}>Sign up </Link></p>
+        
             <button
               // className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
               onChange={() => {}}
