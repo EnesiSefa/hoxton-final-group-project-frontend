@@ -78,7 +78,7 @@ function App() {
       />
 
       <Routes>
-        <Route index element={<Navigate replace to="/signIn" />} />
+        <Route index element={<Navigate replace to="/homePage" />} />
 
         <Route
           path="/homePage"
