@@ -3,6 +3,7 @@ import { Header } from "../Components/Header";
 import { Course, Instructor, User } from "../src/type";
 // import { CoursesCard } from "../components/CoursesCard";
 import { port } from "../src/port";
+import { SearchBar } from "../Pages/SearchBar";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -12,12 +13,16 @@ type Props = {
 };
 export function HomePage() {
   const [courses, setCourses] = useState<Course[]>([]);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     fetch(`http://localhost:${port}/courses`)
       .then((resp) => resp.json())
       .then((coursesFromServer) => setCourses(coursesFromServer));
   }, []);
   console.log(courses);
+  const filteredCourses = courses.filter((course) =>
+    course.title.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     // <div>
     //   <h1>Home Page</h1>
@@ -30,8 +35,9 @@ export function HomePage() {
     //   <footer></footer>
     // </div>
     <section>
+      <SearchBar setSearch={setSearch} />
       <ul className="courses-ul">
-        {courses.map((course) => (
+        {filteredCourses.map((course) => (
           <li className="courses">
             <Link
               to={`/course/${course.id}`}
