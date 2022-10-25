@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { port } from "../src/port";
 
 type Props = {
@@ -7,9 +7,11 @@ type Props = {
   signInInstructor: (data: any) => void;
 };
 export function SignUp({ signInUser, signInInstructor }: Props) {
+  const navigate = useNavigate()
   return (
     <div>
       <div className="bg-white py-8 shadow sm:rounded-lg sm:px-10">
+        <h1></h1>
         <form
           className="space-y-6"
           onSubmit={(event) => {
@@ -40,7 +42,7 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
                     alert(data.error);
                   } else {
                     signInUser(data);
-                    // navigate("/homePage");
+                    navigate("/signIn");
                   }
                 });
               localStorage.user = "user";

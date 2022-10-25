@@ -34,13 +34,13 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </div>
               </div>
             </li> */}
-              //{" "}
+              //
               <Link to={"/categories"}>
-                //{" "}
+                //
                 <li className="text-1xl text-gray-800 font-sans bg-gradient-to-br">
-                  // Categories{" "}
+                  // Categories
                 </li>
-                //{" "}
+                //
               </Link>
               <Link to={"/favorite"}>
                 <li className="text-1xl text-gray-800 font-sans bg-gradient-to-br">

@@ -74,9 +74,9 @@ function App() {
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
 
-        {/* <Route path="/homePage" element={<HomePage />} /> */}
+        <Route path="/homePage" element={<HomePage signOutUser={signOutUser} currentUser={currentUser} currentInstructor={currentInstructor}/>} />
 
-        <Route path="/signUp" element={<SignUp signInUser={signInUser} signInInstructor={signInInstructor} />} />
+        <Route path="/signUp" element={<SignUp signInUser={signInUser}  signInInstructor={signInInstructor} />} />
         <Route
           path="/signIn"
           element={
