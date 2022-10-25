@@ -148,5 +148,3 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
     </div>
   );
 }
-
-// test
