@@ -92,7 +92,7 @@ function App() {
         />
         <Route
             path='/course/:id'
-            element={<DetailPage />}
+            element={<DetailPage currentUser={currentUser}/>}
           />
 
         <Route

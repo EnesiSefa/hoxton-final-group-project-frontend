@@ -14,7 +14,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           className="space-y-6"
-          onSubmit={(event) => {
+          onSubmit={(event: any) => {
             event.preventDefault();
             const user = {
               //@ts-ignore
@@ -100,8 +100,11 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 required
               />
             </div>
-          <p> If you don`t have an accound <Link to={`/SignUp`}>Sign up </Link></p>
-        
+            <p>
+              {" "}
+              If you don`t have an accound <Link to={`/SignUp`}>Sign up </Link>
+            </p>
+
             <button
               // className="w-full rounded-md bg-blue-600 py-2 text-white mt-5"
               onChange={() => {}}
