@@ -71,7 +71,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
             }
           }}
         >
-          <div className="Sign-In">
+          <div className="sign-in">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-blue-900 mb-5">
                 Sing In As
