@@ -10,11 +10,12 @@ type Props = {
 
 export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
   return (
-    <div>
+    <div >
       
         <ul className="header-ul">
           {currentUser ? (
            <nav className="header">
+            
            <Link to='/homePage'><h2 className="logo">Online Courses</h2></Link>
             
               <Link to="/courses">
@@ -59,7 +60,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
               </li>
               </nav>
           ) : (
-            <nav className="signIn-signUp">
+            <header className="signIn-signUp">
             
               <Link to={"/signIn"}>
               <button>
@@ -68,15 +69,19 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </li>
                 </button>
               </Link>
-              
+              <p>/</p>
               <Link to={"/signUp"}>
+                <button>
                 <li className="signUp-li">
                   SignUp
                 </li>
+                </button>
               </Link>
-            </nav>
+            </header>
+         
           )}
         </ul>
+        
  
     </div>
   );

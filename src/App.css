@@ -139,7 +139,7 @@ nav {
   background: #0082e6;
 }
 
-nav ul{
+nav {
   margin-right: 20px;
   display: grid;
   grid-auto-flow: column;
@@ -147,7 +147,7 @@ nav ul{
 }
 
 
-nav ul li{
+nav li{
 display: inline-block;
 line-height: 80px;
 margin: 0 5px;
@@ -172,9 +172,37 @@ color: white;
 
 
   .signIn-signUp{
+    padding-top: 2.1rem;
     display:grid;
     grid-auto-flow: column;
     place-content: center;
-    gap: 2rem;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
 
   }
+
+  .signIn-signUp button{
+    background-color: aliceblue;
+    border: none;
+    color: #0873c5;
+    padding: 1rem;
+    font-size:x-large;
+    border: 1.5px solid #0873c5;
+    border-radius: 20px;
+  }
+
+  .signIn-signUp button :hover{
+   cursor: pointer;
+
+  }
+
+  .signIn-signUp p{
+    font-size: 5rem;
+    color: #024579;
+  }
+
+.signIn-section{
+  background-image: url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80);
+}
