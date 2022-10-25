@@ -79,7 +79,7 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
           <div >
             <div className="Sing-Up-As">
               <h2 className="text-3xl font-bold text-blue-900 mb-5">
-                Sing Up As
+                Sing Up As:
               </h2>
               <select name="answer">
                 <option value="user" className="font-bold  text-blue-500">
