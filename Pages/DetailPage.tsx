@@ -65,15 +65,16 @@ export function DetailPage({ currentUser }: Props) {
                   if (data.error) {
                     alert(data.error);
                     console.log(data.error);
-                  }else{fetch(`http://localhost:${port}/course/${params.id}`)
-                  .then((resp) => resp.json())
-                  .then((courseFromServer) => setCourse(courseFromServer));}
+                  } else {
+                    fetch(`http://localhost:${port}/course/${params.id}`)
+                      .then((resp) => resp.json())
+                      .then((courseFromServer) => setCourse(courseFromServer));
+                  }
                 });
-              
             }}
           >
             <label htmlFor="review">
-              <input type="text" id="review"  name="review" />
+              <input type="text" id="review" name="review" />
             </label>
 
             <button type="submit">post</button>
@@ -85,3 +86,5 @@ export function DetailPage({ currentUser }: Props) {
     </div>
   );
 }
+
+// test
