@@ -70,6 +70,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+       <Header   currentUser ={currentUser} signOutUser={signOutUser} currentInstructor={currentInstructor}/>
       
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
