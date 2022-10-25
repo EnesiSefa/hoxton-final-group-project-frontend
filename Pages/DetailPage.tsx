@@ -70,8 +70,8 @@ export function DetailPage({ currentUser }: Props) {
                       .then((courseFromServer) => setCourse(courseFromServer));
                   }
                 });
-                 // @ts-ignore
-                e.target.reset();
+              // @ts-ignore
+              e.target.reset();
             }}
           >
             <label htmlFor="review">
@@ -87,5 +87,3 @@ export function DetailPage({ currentUser }: Props) {
     </div>
   );
 }
-
-// test
