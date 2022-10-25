@@ -99,5 +99,3 @@ export function SignUp({ signInUser }: Props) {
     </div>
   );
 }
-
-// test
