@@ -277,13 +277,13 @@ margin: 60px;
 .sign-up button:active {
   filter: brightness(0.5);
 }
-select{
+/* select{
   display: grid;
   font-size: 1rem;
   padding: 0.5rem;
   margin-top: 15px;
   width: 200px;
-}
+} */
 
 /* .... */
 
@@ -304,4 +304,5 @@ align-items: center;
 justify-content: space-between;
 font-size: 1.2rem;
 cursor: pointer;
+margin-top: 15px;
 }
