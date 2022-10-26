@@ -77,7 +77,6 @@ export function DetailPage({ currentUser }: Props) {
             <label htmlFor="review">
               <input type="text" id="review" name="review" />
             </label>
-
             <button type="submit">post</button>
           </form>
         ) : (
