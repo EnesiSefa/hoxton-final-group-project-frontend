@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Instructor, User } from "../src/type";
+import { Category, Instructor, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
   signOutUser: () => void;
   currentInstructor: Instructor | null;
+  categories: Category[]
 };
 
-export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
+export function Header({ currentUser, signOutUser, currentInstructor,categories }: Props) {
   
   return (
     <div className="hader-section" >
@@ -25,20 +26,20 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                   Courses
                 </li>
               </Link>
-              {/* <li>
+              <li>
               <div className="dropdown">
                 <button className="dropbtn">Categories</button>
 
                 <div className="dropdown-content">
                   {categories.map((category) => (
                     <Link to={`/categories/${category.id}`} key={category.id}>
-                      {" "}
+                      
                       {category.name}
                     </Link>
                   ))}
                 </div>
               </div>
-            </li> */}
+            </li>
              
               <Link to={"/categories"}>
           

@@ -7,6 +7,7 @@ import { SignUp } from "../Pages/SignUp";
 import { SignIn } from "../Pages/SignIn";
 import { HomePage } from "../Pages/HomePage";
 import { DetailPage } from "../Pages/DetailPage";
+import { CategoryDetails } from "../Pages/CategoryDetails";
 import { Header } from "../Components/Header";
 import { port } from "./port";
 
@@ -15,6 +16,12 @@ function App() {
   const [currentInstructor, setCurrentInstructor] = useState<Instructor | null>(
     null
   );
+  const [categories,setCategories] = useState([])
+useEffect(() => {
+  fetch(`http://localhost:${port}/categories`)
+    .then((resp) => resp.json())
+    .then((categoriesFromServer) => setCategories(categoriesFromServer));
+}, []);
 
   let navigate = useNavigate();
 
@@ -75,10 +82,12 @@ function App() {
         currentUser={currentUser}
         signOutUser={signOutUser}
         currentInstructor={currentInstructor}
+        categories={categories}
+        
       />
 
       <Routes>
-        <Route index element={<Navigate replace to="/homePage" />} />
+        <Route index element={<Navigate replace to="/signIn" />} />
 
         <Route
           path="/homePage"
@@ -94,6 +103,10 @@ function App() {
         <Route
             path='/course/:id'
             element={<DetailPage currentUser={currentUser}/>}
+          />
+          <Route
+            path='/categories/:id'
+            element={<CategoryDetails />}
           />
 
         <Route
