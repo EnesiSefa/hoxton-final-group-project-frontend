@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import { Instructor, User } from "../src/type";
 
 type Props = {
@@ -9,12 +10,14 @@ type Props = {
 };
 
 export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
+  
   return (
-    <div>
+    <div className="hader-section" >
       
         <ul className="header-ul">
           {currentUser ? (
            <nav className="header">
+            
            <Link to='/homePage'><h2 className="logo">Online Courses</h2></Link>
             
               <Link to="/courses">
@@ -49,6 +52,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                   Favorite
                 </li>
               </Link>
+        
               <li>
                 <button
                   className="logIn-btn"
@@ -59,24 +63,28 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
               </li>
               </nav>
           ) : (
-            <nav className="signIn-signUp">
+            <header className="signIn-signUp">
             
-              <Link to={"/signIn"}>
+              {/* <Link to={"/signIn"}>
               <button>
                 <li className="signIn-li">
                   SignIn
                 </li>
                 </button>
               </Link>
-              
+              <p>||</p>
               <Link to={"/signUp"}>
+                <button>
                 <li className="signUp-li">
                   SignUp
                 </li>
-              </Link>
-            </nav>
+                </button>
+              </Link> */}
+            </header>
+         
           )}
         </ul>
+        
  
     </div>
   );

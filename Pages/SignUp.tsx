@@ -78,9 +78,13 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
         >
           <div >
             <div className="Sing-Up-As">
+<<<<<<< HEAD
               <h2>
+=======
+              <h3 className="text-3xl font-bold text-blue-900 mb-5">
+>>>>>>> 0ee290c23d01b4b572e1fd466f1d9932b928fbd9
                 Sing Up As:
-              </h2>
+              </h3>
               <select name="answer">
                 <option value="user" className="font-bold  text-blue-500">
                   <h2 className="text-blue-500 font-medium">User</h2>
@@ -136,7 +140,7 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
                   required
                 />
               </div>
-              
+              <p> Already have an account? <Link to={`/SignIn`}>Sign in </Link></p>
               <button
                 type="submit"
                 

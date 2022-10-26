@@ -14,7 +14,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           className="space-y-6"
-          onSubmit={(event) => {
+          onSubmit={(event: any) => {
             event.preventDefault();
             const user = {
               //@ts-ignore
@@ -92,6 +92,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 required
               />
             </div>
+            {/* test */}
             <div>
               <input
                 // className="w-full rounded-md border border-blue-300 p-2 mt-3"
