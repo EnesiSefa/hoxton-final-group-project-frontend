@@ -14,7 +14,7 @@ export function CategoryDetails() {
     <div className="category-details">
       {category?.courses.map((course: Course) => (
         <div>
-          <Link to={`/courses/${course.id}`}>
+          <Link to={`/course/${course.id}`}>
             <h1 className="category-title">{course.title}</h1>
             <img
               className="category-image"

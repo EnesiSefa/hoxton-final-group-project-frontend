@@ -134,7 +134,7 @@ nav {
 }
 
 nav {
-  margin-right: 20px;
+  /* margin-right: 20px; */
   display: grid;
   grid-auto-flow: column;
   list-style: none;
@@ -341,7 +341,7 @@ select {
 }
 
 /* Search */
-.search{
+.search {
   float: right;
   padding: 6px;
   border: none;
@@ -351,19 +351,16 @@ select {
 }
 /* Home */
 .home {
-  background-image: 
-  url(
-"https://previews.123rf.com/images/natalimis/natalimis1705/natalimis170500105/78114060-online-course-in-hand-businessman-on-blurred-background-.jpg");
+  background-image: url("https://previews.123rf.com/images/natalimis/natalimis1705/natalimis170500105/78114060-online-course-in-hand-businessman-on-blurred-background-.jpg");
   background-size: "cover";
   display: grid;
   /* gap: 80rem; */
   height: 84.5vh;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   /* font-size:50px; */
-  background-repeat:no-repeat; 
+  background-repeat: no-repeat;
 }
-/* test */
-
+/* Category */
 
 .category-details {
   display: grid;
@@ -387,4 +384,3 @@ select {
   border-radius: 15px;
   /* border: 2px solid rgb(173, 173, 223); */
 }
-

@@ -6,7 +6,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp } from "../Pages/SignUp";
 import { SignIn } from "../Pages/SignIn";
 import { HomePage } from "../Pages/HomePage";
-import { Home} from "../Pages/Home";
+import { Home } from "../Pages/Home";
 import { DetailPage } from "../Pages/DetailPage";
 import { CategoryDetails } from "../Pages/CategoryDetails";
 import { Header } from "../Components/Header";
@@ -102,7 +102,11 @@ function App() {
           path="/course/:id"
           element={<DetailPage currentUser={currentUser} />}
         />
+<<<<<<< HEAD
         {/* <Route path="/categories" element={<Categories />} /> */}
+=======
+        <Route path="/home" element={<Home />} />
+>>>>>>> 92f56f109f672e262fbc82e8d7ecba4af04a4604
         <Route path="/categories/:id" element={<CategoryDetails />} />
 
         <Route
