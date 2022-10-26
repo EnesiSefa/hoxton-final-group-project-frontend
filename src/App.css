@@ -12,13 +12,12 @@
   padding: 1rem;
   place-items: center;
   background-color: rgb(216, 211, 211);
- margin: 0px 19px;
+  margin: 0px 19px;
 }
 .courses-item h4 {
   display: grid;
   place-content: center;
   color: black;
-
 }
 .courses-ul {
   display: grid;
@@ -34,54 +33,49 @@
   grid-template-columns: auto auto;
   gap: 3rem;
 }
-.detail-section img{
+.detail-section img {
   display: grid;
   margin-top: 40px;
   width: 500px;
   height: 380px;
   object-fit: contain;
   margin-left: 15px;
-
 }
 .detail-container {
-margin-top: 40px;
-
+  margin-top: 40px;
 }
-.detail-container h2{
+.detail-container h2 {
   display: grid;
   place-content: center;
- 
 }
-.detail-description{
+.detail-description {
   display: grid;
-margin: 10px;
+  margin: 10px;
   place-content: center;
   margin-top: 50px;
-
 }
-.detail-type{
+.detail-type {
   display: grid;
   margin: 10px;
   padding-top: 40px;
 }
-.detail-price{
+.detail-price {
   display: grid;
   margin: 10px;
   margin-right: 70px;
   place-content: end;
-
 }
 
-.add-to-cart-button{
+.add-to-cart-button {
   /* display: grid; */
   padding: 10px;
   /* place-items: center; */
   margin-left: 1000px;
-  color:white;
+  color: white;
   background-color: red;
-  border:2px solid red ;
+  border: 2px solid red;
   border-radius: 10%;
-} 
+}
 /* Sign-In */
 .sign-in {
   display: grid;
@@ -117,17 +111,17 @@ margin: 10px;
 .sign-in button:active {
   filter: brightness(0.5);
 }
-.text-center{
+.text-center {
   display: grid;
   grid-template-rows: auto auto;
   place-content: center;
 }
 /* Header */
-.header a{
-text-decoration: none;
-color: rgb(7, 57, 173);
+.header a {
+  text-decoration: none;
+  color: rgb(7, 57, 173);
 }
-.logo{
+.logo {
   color: white;
   font-size: 35px;
   line-height: 80px;
@@ -146,29 +140,26 @@ nav {
   list-style: none;
 }
 
-
-nav li{
-display: inline-block;
-line-height: 80px;
-margin: 0 5px;
+nav li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
 }
 
-.header-li{
-color: white;
-  }
+.header-li {
+  color: white;
+}
 
-  .logIn-btn{
-    background-color: aliceblue;
-    border: none;
-    color: #0873c5;
-    padding: 0.5rem;
-  }
+.logIn-btn {
+  background-color: aliceblue;
+  border: none;
+  color: #0873c5;
+  padding: 0.5rem;
+}
 
-  
-  .logIn-btn:hover{
-    cursor: pointer;
-  }
-
+.logIn-btn:hover {
+  cursor: pointer;
+}
 
 /* Sign-Up */
 .sign-up {
@@ -176,42 +167,40 @@ color: white;
   place-content: center;
   margin-top: 50px;
   height: 100%;
-
 }
 
-  .signIn-signUp{
-    padding-top: 2.1rem;
-    display:grid;
-    grid-auto-flow: column;
-    place-content: center;
-    gap: 1rem;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    height: 0px;
-  }
+.signIn-signUp {
+  padding-top: 2.1rem;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  gap: 1rem;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  height: 0px;
+}
 
-  .signIn-signUp button{
-    background-color: aliceblue;
-    border: none;
-    color: #0873c5;
-    padding: 1rem;
-    font-size:x-large;
-    border: 1.5px solid #0873c5;
-    border-radius: 20px;
-  }
+.signIn-signUp button {
+  background-color: aliceblue;
+  border: none;
+  color: #0873c5;
+  padding: 1rem;
+  font-size: x-large;
+  border: 1.5px solid #0873c5;
+  border-radius: 20px;
+}
 
-  .signIn-signUp button :hover{
-   cursor: pointer;
+.signIn-signUp button :hover {
+  cursor: pointer;
+}
 
-  }
+.signIn-signUp p {
+  font-size: 5rem;
+  color: #024579;
+}
 
-  .signIn-signUp p{
-    font-size: 5rem;
-    color: #024579;
-  }
-
- .sign-up h2 {
+.sign-up h2 {
   font-weight: 900;
   font-size: x-large;
   display: grid;
@@ -224,8 +213,6 @@ color: white;
   gap: 1.5rem;
 }
 
-
-
 /* .sign-up label {
   display: grid;
   grid-template-columns: auto auto;
@@ -233,37 +220,37 @@ color: white;
 margin: 60px;
 } */
 .sign-up div {
- display: grid;
- margin-top: 10px;
+  display: grid;
+  margin-top: 10px;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   border: 2px solid black;
 }
-.sign-up div input{
+.sign-up div input {
   display: grid;
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   border: 2px solid rgb(255, 255, 255);
 }
-.sign-up  button{
+.sign-up button {
   display: grid;
   color: white;
-  background-color:red;
+  background-color: red;
   font-size: 1rem;
   padding: 0.5rem;
   margin-top: 15px;
   margin-left: 45px;
-  width: 230px; 
+  width: 230px;
 }
-.Sing-Up-As{
+.Sing-Up-As {
   margin-top: 40px;
   display: grid;
   place-content: center;
   font-weight: 900;
   font-size: x-large;
 }
-.Sing-Up-As h2{
+.Sing-Up-As h2 {
   font-weight: 900;
   font-size: xx-large;
   display: grid;
@@ -277,7 +264,7 @@ margin: 60px;
 .sign-up button:active {
   filter: brightness(0.5);
 }
-select{
+select {
   display: grid;
   font-size: 1rem;
   padding: 0.5rem;
@@ -287,27 +274,67 @@ select{
 
 /* .... */
 
-.Sing-Up-As{
+.Sing-Up-As {
   display: grid;
   grid-auto-flow: row;
   gap: 10px;
- justify-content: center;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-select{
-padding: 1rem;
-border-radius: 8px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-font-size: 1.2rem;
-cursor: pointer;
+select {
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.dropdown-content{
+.dropdown-content {
   display: grid;
   grid-auto-flow: column;
-  
+}
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: white;
 }
