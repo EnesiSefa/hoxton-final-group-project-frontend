@@ -82,7 +82,7 @@ function App() {
         <Route index element={<Navigate replace to="/signIn" />} />
 
         <Route
-          path="/homePage"
+          path="/courses"
           element={
             <HomePage
             // signOutUser={signOutUser}
