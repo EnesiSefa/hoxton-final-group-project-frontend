@@ -11,12 +11,17 @@ import { DetailPage } from "../Pages/DetailPage";
 import { CategoryDetails } from "../Pages/CategoryDetails";
 import { Header } from "../Components/Header";
 import { port } from "./port";
+import { Cart } from "../Pages/Cart";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [currentInstructor, setCurrentInstructor] = useState<Instructor | null>(
     null
   );
+  const [error, setError] = useState<null | Array<string>>(null);
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   let navigate = useNavigate();
 
@@ -97,14 +102,7 @@ function App() {
           path="/course/:id"
           element={<DetailPage currentUser={currentUser} />}
         />
-<<<<<<< HEAD
-        <Route
-          path="/home"
-          element={<Home />}
-        />
-=======
         {/* <Route path="/categories" element={<Categories />} /> */}
->>>>>>> af9a5ebe67c49d1ebbf013054bc45a667023dddb
         <Route path="/categories/:id" element={<CategoryDetails />} />
 
         <Route
@@ -125,6 +123,17 @@ function App() {
             />
           }
         />
+           <Route
+            path="/cart"
+            element={
+              <Cart
+                refreshPage={refreshPage}
+                currentUser={currentUser}
+                setError={setError}
+                error={error}
+              />
+            }
+          />
       </Routes>
     </div>
   );

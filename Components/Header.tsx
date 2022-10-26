@@ -1,6 +1,8 @@
+import { Box, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { port } from "../src/port";
+import ShoppingCartCheckoutSharpIcon from "@mui/icons-material/ShoppingCartCheckoutSharp";
 
 import { Category, Instructor, User } from "../src/type";
 
@@ -23,7 +25,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
       <ul className="header-ul">
         {currentUser ? (
           <nav className="header">
-            <Link to="/home">
+            <Link to="/homePage">
               <h2 className="logo">Online Courses</h2>
             </Link>
 
@@ -47,6 +49,19 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
             <Link to={"/favorite"}>
               <li className="header-li">Favorite</li>
             </Link>
+
+            <Box px={{ xs: 4 }}>
+          <Link to={"/cart"}>
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="logo"
+            >
+              <ShoppingCartCheckoutSharpIcon />
+            </IconButton>
+          </Link>
+        </Box>
 
             <li>
               <button className="logIn-btn" onClick={signOutUser}>
