@@ -5,8 +5,9 @@ import { port } from "../src/port";
 import { Course, Review, User } from "../src/type";
 type Props = {
   currentUser: User | null;
+  setSelectedCourse: () => void;
 };
-export function DetailPage({ currentUser }: Props) {
+export function DetailPage({ currentUser, setSelectedCourse }: Props) {
   const [course, setCourse] = useState<Course | null>(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -30,7 +31,29 @@ export function DetailPage({ currentUser }: Props) {
         </div>
       </div>
 
-      <button className="add-to-cart-button">Add to cart</button>
+      <button
+        className="add-to-cart-button"
+        onClick={() => {
+          // const data = {
+          //   userId: currentUser?.id,
+          //   courseId: course.id,
+
+          // };
+
+          //   fetch(`http://localhost:${port}/cartitem`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify(data),
+          //   })
+          //     .then(resp) => resp.json())
+          //     .then(data)
+          setSelectedCourse(course);
+        }}
+      >
+        Add to cart
+      </button>
       <div className="reviews-section">
         <ul>
           {course.reviews.map((review) => (

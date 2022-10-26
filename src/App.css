@@ -40,6 +40,7 @@
   height: 380px;
   object-fit: contain;
   margin-left: 15px;
+  cursor: pointer;
 }
 .detail-container {
   margin-top: 40px;
@@ -75,7 +76,9 @@
   background-color: red;
   border: 2px solid red;
   border-radius: 10%;
+  cursor: pointer;
 }
+
 /* Sign-In */
 .sign-in {
   display: grid;
