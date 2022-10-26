@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { port } from "../src/port";
-import { Category } from "../src/type";
+import { Category, Course } from "../src/type";
 export function CategoryDetails() {
   const params = useParams();
   const [category, setCategory] = useState<Category | null>(null);
@@ -12,7 +12,7 @@ export function CategoryDetails() {
   }, []);
   return (
     <div className="category-details">
-      {category?.courses.map((course) => (
+      {category?.courses.map((course: Course) => (
         <div>
           <Link to={`/courses/${course.id}`}>
             <h1 className="category-title">{course.title}</h1>
