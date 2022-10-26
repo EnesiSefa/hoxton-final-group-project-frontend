@@ -96,6 +96,7 @@ function App() {
           path="/course/:id"
           element={<DetailPage currentUser={currentUser} />}
         />
+        {/* <Route path="/categories" element={<Categories />} /> */}
         <Route path="/categories/:id" element={<CategoryDetails />} />
 
         <Route

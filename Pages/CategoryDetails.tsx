@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { port } from "../src/port";
 import { Category } from "../src/type";
 export function CategoryDetails() {
@@ -14,8 +14,15 @@ export function CategoryDetails() {
     <div className="category-details">
       {category?.courses.map((course) => (
         <div>
-          <h1>{course.title}</h1>
-          <img src={course.image} alt="" />
+          <Link to={`/courses/${course.id}`}>
+            <h1 className="category-title">{course.title}</h1>
+            <img
+              className="category-image"
+              src={course.image}
+              alt=""
+              key={category.id}
+            />
+          </Link>
         </div>
       ))}
     </div>
