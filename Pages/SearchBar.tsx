@@ -8,7 +8,7 @@ export function SearchBar({ setSearch }: Props) {
   return (
     <div>
       <input
-        className=""
+        className="search"
         placeholder="What do you want to learn?"
         onChange={(event) => {
           setSearch(event.target.value);
