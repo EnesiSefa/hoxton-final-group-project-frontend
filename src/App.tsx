@@ -16,12 +16,6 @@ function App() {
   const [currentInstructor, setCurrentInstructor] = useState<Instructor | null>(
     null
   );
-  const [categories,setCategories] = useState([])
-useEffect(() => {
-  fetch(`http://localhost:${port}/categories`)
-    .then((resp) => resp.json())
-    .then((categoriesFromServer) => setCategories(categoriesFromServer));
-}, []);
 
   let navigate = useNavigate();
 
@@ -82,8 +76,6 @@ useEffect(() => {
         currentUser={currentUser}
         signOutUser={signOutUser}
         currentInstructor={currentInstructor}
-        categories={categories}
-        
       />
 
       <Routes>
@@ -93,21 +85,18 @@ useEffect(() => {
           path="/homePage"
           element={
             <HomePage
-              // signOutUser={signOutUser}
-              // currentUser={currentUser}
-              // currentInstructor={currentInstructor}
-              // commented for the moment
+            // signOutUser={signOutUser}
+            // currentUser={currentUser}
+            // currentInstructor={currentInstructor}
+            // commented for the moment
             />
           }
         />
         <Route
-            path='/course/:id'
-            element={<DetailPage currentUser={currentUser}/>}
-          />
-          <Route
-            path='/categories/:id'
-            element={<CategoryDetails />}
-          />
+          path="/course/:id"
+          element={<DetailPage currentUser={currentUser} />}
+        />
+        <Route path="/categories/:id" element={<CategoryDetails />} />
 
         <Route
           path="/signUp"
