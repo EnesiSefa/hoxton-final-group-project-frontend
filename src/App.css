@@ -339,5 +339,26 @@ select {
 .dropdown:hover .dropbtn {
   background-color: white;
 }
-
+/* Search */
+.search{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+/* Home */
+.home {
+  background-image: 
+  url(
+"https://previews.123rf.com/images/natalimis/natalimis1705/natalimis170500105/78114060-online-course-in-hand-businessman-on-blurred-background-.jpg");
+  background-size: "cover";
+  display: grid;
+  /* gap: 80rem; */
+  height: 84.5vh;
+  margin-right: 20px;
+  /* font-size:50px; */
+  background-repeat:no-repeat; 
+}
 /* test */
