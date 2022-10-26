@@ -122,7 +122,7 @@ margin: 10px;
   grid-template-rows: auto auto;
   place-content: center;
 }
-
+/* Header */
 .header a{
 text-decoration: none;
 color: rgb(7, 57, 173);
@@ -216,7 +216,7 @@ color: white;
   font-size: x-large;
   display: grid;
   place-content: center;
-  margin: 20px;
+  margin: 10px;
 }
 
 .sign-up form {
@@ -263,6 +263,12 @@ margin: 60px;
   font-weight: 900;
   font-size: x-large;
 }
+.Sing-Up-As h2{
+  font-weight: 900;
+  font-size: xx-large;
+  display: grid;
+  place-content: center;
+}
 
 .sign-up button:hover {
   filter: brightness(1.5);
@@ -288,8 +294,6 @@ select{
  justify-content: center;
  align-items: center;
 }
-
-
 
 select{
 padding: 1rem;
