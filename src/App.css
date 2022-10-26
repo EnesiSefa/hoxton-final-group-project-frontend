@@ -264,17 +264,14 @@ margin: 60px;
 .sign-up button:active {
   filter: brightness(0.5);
 }
-<<<<<<< HEAD
 select {
-=======
-/* select{
->>>>>>> ca8ff876386f88817ab55e685415b09a888d8132
   display: grid;
   font-size: 1rem;
   padding: 0.5rem;
   margin-top: 15px;
   width: 200px;
-} */
+}
+*/
 
 /* .... */
 
@@ -286,7 +283,6 @@ select {
   align-items: center;
 }
 
-<<<<<<< HEAD
 select {
   padding: 1rem;
   border-radius: 8px;
@@ -296,25 +292,11 @@ select {
   justify-content: space-between;
   font-size: 1.2rem;
   cursor: pointer;
-=======
-select{
-padding: 1rem;
-border-radius: 8px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-font-size: 1.2rem;
-cursor: pointer;
-margin-top: 15px;
-
->>>>>>> ca8ff876386f88817ab55e685415b09a888d8132
 }
 
 .dropdown-content {
   display: grid;
   grid-auto-flow: column;
-<<<<<<< HEAD
 }
 .dropbtn {
   background-color: transparent;
@@ -357,7 +339,5 @@ margin-top: 15px;
 .dropdown:hover .dropbtn {
   background-color: white;
 }
-=======
 
-}
->>>>>>> ca8ff876386f88817ab55e685415b09a888d8132
+/* test */
