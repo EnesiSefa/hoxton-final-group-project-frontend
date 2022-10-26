@@ -170,6 +170,14 @@ color: white;
   }
 
 
+/* Sign-Up */
+.sign-up {
+  display: grid;
+  place-content: center;
+  margin-top: 50px;
+  height: 100%;
+
+}
 
   .signIn-signUp{
     padding-top: 2.1rem;
@@ -180,7 +188,7 @@ color: white;
     list-style: none;
     align-items: center;
     justify-content: center;
-
+    height: 0px;
   }
 
   .signIn-signUp button{
@@ -203,6 +211,93 @@ color: white;
     color: #024579;
   }
 
-.signIn-section{
-  background-image: url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80);
+ .sign-up h2 {
+  font-weight: 900;
+  font-size: x-large;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+
+.sign-up form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+
+
+/* .sign-up label {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-top: 10px;
+margin: 60px;
+} */
+.sign-up div {
+ display: grid;
+ margin-top: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.sign-up div input{
+  display: grid;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+}
+.sign-up  button{
+  display: grid;
+  color: white;
+  background-color:red;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 15px;
+  margin-left: 45px;
+  width: 230px; 
+}
+.Sing-Up-As{
+  margin-top: 40px;
+  display: grid;
+  place-content: center;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+.sign-up button:hover {
+  filter: brightness(1.5);
+}
+
+.sign-up button:active {
+  filter: brightness(0.5);
+}
+select{
+  display: grid;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 15px;
+  width: 200px;
+}
+
+/* .... */
+
+.Sing-Up-As{
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+ justify-content: center;
+ align-items: center;
+}
+
+
+
+select{
+padding: 1rem;
+border-radius: 8px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 1.2rem;
+cursor: pointer;
 }
