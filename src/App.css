@@ -311,6 +311,5 @@ margin-top: 15px;
 .dropdown-content{
   display: grid;
   grid-auto-flow: column;
-  
->>>>>>> 8028677ad3bbdc4565d27de8aba92d2ae4558933
+
 }
