@@ -78,11 +78,8 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
         >
           <div >
             <div className="Sing-Up-As">
-<<<<<<< HEAD
-              <h2>
-=======
+              {/* <h2> */}
               <h3 className="text-3xl font-bold text-blue-900 mb-5">
->>>>>>> 0ee290c23d01b4b572e1fd466f1d9932b928fbd9
                 Sing Up As:
               </h3>
               <select name="answer">
