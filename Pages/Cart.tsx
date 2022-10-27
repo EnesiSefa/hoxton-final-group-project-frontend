@@ -83,7 +83,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                         },
                       })
                         .then((rsp) => rsp.json())
-                        .then((data) => setCartItems(data));
+                        .then((course) => setCartItems(course));
                       refreshPage();
                     }}
                   >
