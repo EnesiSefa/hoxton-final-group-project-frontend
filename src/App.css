@@ -416,7 +416,6 @@ select {
 .courses-item {
   background-color: #dce1e7;
   height: auto;
-  gap: 1rem;
 }
 
 .courses-section {
@@ -435,8 +434,8 @@ select {
 }
 
 .courseName {
-  font-size: 20px;
-  color: #0f97bd;
+  font-size: 15px;
+  color: #024579;
 }
 
 .coursePrice {
@@ -455,3 +454,4 @@ select {
   display: grid;
   grid-auto-flow: column;
 }
+
