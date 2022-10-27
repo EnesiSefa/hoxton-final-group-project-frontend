@@ -7,7 +7,7 @@ type Props = {
   signInInstructor: (data: any) => void;
 };
 export function SignUp({ signInUser, signInInstructor }: Props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div>
       <div className="bg-white py-8 shadow sm:rounded-lg sm:px-10">
@@ -76,7 +76,7 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
             }
           }}
         >
-          <div >
+          <div>
             <div className="Sing-Up-As">
               {/* <h2> */}
               <h3 className="text-3xl font-bold text-blue-900 mb-5">
@@ -93,64 +93,60 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
             </div>
           </div>
           <div className="sign-up">
-          <div>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold  text-blue-600">Sign Up</h2>
-              <div className="sign-up--input">
-                <input
-                  className="w-full rounded-md border border-blue-300 p-2 mt-3"
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name ..."
-                />
-              </div>
-              <div>
-                <input
-                  className="w-full rounded-md border border-blue-300 p-2 mt-3"
-                  type="text"
-                  name="lastName"
-                  placeholder="Enter your lastName ... "
-                />
-              </div>
-              {/* <div>
+            <div>
+              <div className="text-center">
+                <h2 className="text-3xl font-bold  text-blue-600">Sign Up</h2>
+                <div className="sign-up--input">
+                  <input
+                    className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name ..."
+                  />
+                </div>
+                <div>
+                  <input
+                    className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                    type="text"
+                    name="lastName"
+                    placeholder="Enter your lastName ... "
+                  />
+                </div>
+                {/* <div>
                 <input
                   className="w-full rounded-md border border-blue-300 p-2 mt-3"
                   name="image"
                   placeholder="Enter your image url..."
                 />
               </div> */}
-              <div>
-                <input
-                  // className="w-full rounded-md border border-blue-300 p-2 mt-3"
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email..."
-                  required
-                />
+                <div>
+                  <input
+                    // className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email..."
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    // className="w-full rounded-md border border-blue-300 p-2 mt-3"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+                <p>
+                  {" "}
+                  Already have an account? <Link to={`/SignIn`}>Sign in </Link>
+                </p>
+                <button type="submit">Sign Up</button>
               </div>
-              <div>
-                <input
-                  // className="w-full rounded-md border border-blue-300 p-2 mt-3"
-                  type="text"
-                  name="password"
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              <p> Already have an account? <Link to={`/SignIn`}>Sign in </Link></p>
-              <button
-                type="submit"
-                
-              >
-                Sign Up
-              </button>
             </div>
           </div>
-          </div>
         </form>
-        
       </div>
     </div>
-   
   );
 }

@@ -8,10 +8,10 @@ type Props = {
   currentUser: User | null;
   setSelectedCourse: () => void;
 };
-type CartItem={
-  id: number,
-  pizzaId: number,
-}
+type CartItem = {
+  id: number;
+  pizzaId: number;
+};
 export function DetailPage({ currentUser, setSelectedCourse }: Props) {
   const [course, setCourse] = useState<Course | null>(null);
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
@@ -47,7 +47,7 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
             },
             body: JSON.stringify({
               courseId: course.id,
-              userId: currentUser.id
+              userId: currentUser?.id,
             }),
           })
             .then((resp) => resp.json())
@@ -56,7 +56,7 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
                 alert(data.errors);
               } else {
                 setCartItem(data);
-                navigate("/cart")
+                navigate("/cart");
               }
             });
         }}
@@ -67,6 +67,7 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
         <ul>
           {course.reviews.map((review) => (
             <li>
+              <h3>{review.user.name}</h3>
               <p>{review.review}</p>
             </li>
           ))}

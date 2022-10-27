@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 type Props = {
   currentUser: User | null;
 };
-export function Cart({ currentUser }: Props) {
+export function Cart({ currentUser , refreshPage}: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
@@ -17,6 +17,7 @@ export function Cart({ currentUser }: Props) {
       .then((rsp) => rsp.json())
       .then((data) => setCartItems(data));
   }, []);
+  console.log(cartItems)
   function getTotal() {
     let total = 0;
     for (let course of cartItems) {
@@ -43,12 +44,12 @@ export function Cart({ currentUser }: Props) {
         <h3>{currentUser?.name}</h3>
         <h4>{updatedUser?.balance}</h4>
       </div>
-      <div className="cart-row">
+      <div className="cart-row"><p></p>
         <h1 className="cart-title">Your Cart</h1>
       </div>
       <div className="cart-row">
         <div className="cart-col">
-          {cartItems.map((item) => (
+          {cartItems ? cartItems.map((item) => (
             <div className="cart-card">
               <div className="cart-header">
                 <h2 className="cart-subTitle">{item.course.title}</h2>
@@ -69,47 +70,65 @@ export function Cart({ currentUser }: Props) {
                   <div className="cart-footer-bottom-right"></div>
                 </div>
               </div>
-              
-            </div>
-          ))}
-          <p>{getTotal().toFixed(2)}</p>
-          <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  const data = {
-                    balance: getTotal() - currentUser?.balance!,
-                  };
-                  if (getTotal() < currentUser?.balance!) {
-                    fetch(
-                      `http://localhost:${port}/changeUserBalance/:${currentUser?.id}`,
-                      {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                      }
-                    )
-                      .then((resp) => resp.json())
-                      .then((data) => {
-                        if (data.error) {
-                          alert(data.error);
-                          console.log(data.error);
-                        } else {
-                          fetch(
-                            `http://localhost:${port}/user/${currentUser?.id}`
-                          )
-                            .then((resp) => resp.json())
-                            .then((user) => setUpdatedUser(user));
-                        }
-                      });
-                  }
+              <button
+                variant="text"
+                color="error"
+                onClick={() => {
+                  fetch(`http://localhost:${port}/cartitem/${item.id}`, {
+                    method: "DELETE",
+                    headers: {
+                      Authorization: localStorage.token,
+                    },
+                  })
+                    .then((rsp) => rsp.json())
+                    .then((data) => setCartItems(data));
+                  refreshPage();
+                 
                 }}
               >
-                Buy
+                Remove
               </button>
+            </div>
+          )) : ""}
+          <p>{getTotal().toFixed(2)}</p>
+          
+          {/* <button
+            onClick={(e) => {
+              e.preventDefault();
+              const data = {
+                balance: getTotal() - currentUser?.balance!,
+              };
+              if (getTotal() < currentUser?.balance!) {
+                fetch(
+                  `http://localhost:${port}/changeUserBalance/:${currentUser?.id}`,
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  }
+                )
+                  .then((resp) => resp.json())
+                  .then((data) => {
+                    if (data.error) {
+                      alert(data.error);
+                      console.log(data.error);
+                    } else {
+                      fetch(`http://localhost:${port}/user/${currentUser?.id}`)
+                        .then((resp) => resp.json())
+                        .then((user) => setUpdatedUser(user));
+                    }
+                  });
+              }
+            }}
+          >
+            Buy
+          </button> */}
         </div>
       </div>
     </div>
   );
 }
+
+// test
