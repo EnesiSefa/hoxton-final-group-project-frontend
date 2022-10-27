@@ -352,23 +352,25 @@ select {
 /* Home */
 .home {
   background-image: url("https://previews.123rf.com/images/natalimis/natalimis1705/natalimis170500105/78114060-online-course-in-hand-businessman-on-blurred-background-.jpg");
-  background-size: "cover";
   display: grid;
-  /* gap: 80rem; */
   height: 84.5vh;
-  /* margin-right: 20px; */
-  /* font-size:50px; */
-  background-repeat: no-repeat;
+  place-self: center;
+  background-size: 780px;
+  background-repeat: round;
 }
 /* Category */
 
 .category-details {
   display: grid;
-  /* grid-auto-flow: column; */
-  /* border: 2px solid black; */
-  /* border: none; */
+  grid-auto-flow: column; 
+  margin-top: 50px;
+  border-radius: 15px;
+  border: 2px solid rgb(173, 173, 223);
+  width: 500px;
+  margin-left: 300px;
 }
 .category-title {
+  display: grid;
   font-size: large;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
@@ -376,11 +378,14 @@ select {
   color: #024579;
 }
 .category-image {
+  display: grid;
+justify-items: center;
   width: 500px;
   height: 250px;
   object-fit: cover;
-  margin-left: 25rem;
+  /* margin-left: 20rem; */
   margin-top: 30px;
   border-radius: 15px;
   /* border: 2px solid rgb(173, 173, 223); */
+  padding: 10px;
 }

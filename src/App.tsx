@@ -102,11 +102,7 @@ function App() {
           path="/course/:id"
           element={<DetailPage currentUser={currentUser} />}
         />
-<<<<<<< HEAD
         {/* <Route path="/categories" element={<Categories />} /> */}
-=======
-        <Route path="/home" element={<Home />} />
->>>>>>> 92f56f109f672e262fbc82e8d7ecba4af04a4604
         <Route path="/categories/:id" element={<CategoryDetails />} />
 
         <Route
