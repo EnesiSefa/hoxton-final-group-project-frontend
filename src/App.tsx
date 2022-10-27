@@ -19,7 +19,7 @@ function App() {
     null
   );
   const [error, setError] = useState<null | Array<string>>(null);
-  const [selectedCourse,setSelectedCourse] = useState<Course[]>([])
+  const [selectedCourse, setSelectedCourse] = useState<Course[]>([]);
   const refreshPage = () => {
     window.location.reload();
   };
@@ -96,14 +96,20 @@ function App() {
             // currentUser={currentUser}
             // currentInstructor={currentInstructor}
             // commented for the moment
-            
-            
             />
           }
         />
+
+        <Route path="/homePage" element={<Home />} />
+
         <Route
           path="/course/:id"
-          element={<DetailPage currentUser={currentUser} setSelectedCourse={setSelectedCourse}/>}
+          element={
+            <DetailPage
+              currentUser={currentUser}
+              setSelectedCourse={setSelectedCourse}
+            />
+          }
         />
         {/* <Route path="/categories" element={<Categories />} /> */}
         <Route path="/categories/:id" element={<CategoryDetails />} />
@@ -126,18 +132,18 @@ function App() {
             />
           }
         />
-           <Route
-            path="/cart"
-            element={
-              <Cart
-                refreshPage={refreshPage}
-                currentUser={currentUser}
-                setError={setError}
-                error={error}
-                selectedCourse={selectedCourse}
-              />
-            }
-          />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              refreshPage={refreshPage}
+              currentUser={currentUser}
+              setError={setError}
+              error={error}
+              selectedCourse={selectedCourse}
+            />
+          }
+        />
       </Routes>
     </div>
   );
