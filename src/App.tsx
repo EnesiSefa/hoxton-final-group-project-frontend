@@ -101,6 +101,13 @@ function App() {
             />
           }
         />
+          <Route
+          path="/home"
+          element={
+            <Home
+            />
+          }
+        />
         <Route
           path="/course/:id"
           element={<DetailPage currentUser={currentUser} setSelectedCourse={setSelectedCourse}/>}

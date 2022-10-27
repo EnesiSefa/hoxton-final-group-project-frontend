@@ -7,8 +7,13 @@ type Props = {
   currentUser: User | null;
   setSelectedCourse: () => void;
 };
+type CartItem={
+  id: number,
+  pizzaId: number,
+}
 export function DetailPage({ currentUser, setSelectedCourse }: Props) {
   const [course, setCourse] = useState<Course | null>(null);
+  const [cartItem, setCartItem] = useState<CartItem | null>(null);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -34,32 +39,25 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
       <button
         className="add-to-cart-button"
         onClick={() => {
-          const data = {
-            userId: currentUser?.id,
-            courseId: course.id,
-          };
-          fetch(
-            `http://localhost:${port}//addtoCart/:${currentUser?.id}/:${course.id}`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-            }
-          )
+          fetch(`http://localhost:4167/cartItem`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              pizzaId: course.id,
+              userId: currentUser.id
+            }),
+          })
             .then((resp) => resp.json())
             .then((data) => {
-              if (data.error) {
-                alert(data.error);
-                console.log(data.error);
+              if (data.errors) {
+                alert(data.errors);
               } else {
-                fetch(`http://localhost:${port}/course/${params.id}`)
-                  .then((resp) => resp.json())
-                  .then((courseFromServer) => setCourse(courseFromServer));
+                setCartItem(data);
+                navigate("/orders");
               }
             });
-            
         }}
       >
         Add to cart
