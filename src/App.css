@@ -434,8 +434,8 @@ select {
 }
 
 .courseName {
-  font-size: 15px;
-  color: #024579;
+  font-size: 20px;
+  color: #0f97bd;
 }
 
 .coursePrice {
@@ -454,16 +454,4 @@ select {
   display: grid;
   grid-auto-flow: column;
 }
-/* CART  */
 
-
-.cart-container{
-  display: grid;
-}
-.cart-row{
-  display: grid;
-}
-.cart-col{
-  display: grid;
-  grid-template-columns: auto auto;
-}
