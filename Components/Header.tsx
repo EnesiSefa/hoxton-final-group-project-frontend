@@ -45,7 +45,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </div>
               </div>
             </li>
-
+<li className="header-cart">
             <Box px={{ xs: 4 }}>
               <Link to={"/cart"}>
                 <IconButton
@@ -58,7 +58,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </IconButton>
               </Link>
             </Box>
-
+            </li>
             <li>
               <button className="logIn-btn" onClick={signOutUser}>
                 LogOut
