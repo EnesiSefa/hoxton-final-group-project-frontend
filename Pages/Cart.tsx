@@ -69,47 +69,46 @@ export function Cart({ currentUser }: Props) {
                   <div className="cart-footer-bottom-right"></div>
                 </div>
               </div>
-              
             </div>
           ))}
           <p>{getTotal().toFixed(2)}</p>
           <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  const data = {
-                    balance: getTotal() - currentUser?.balance!,
-                  };
-                  if (getTotal() < currentUser?.balance!) {
-                    fetch(
-                      `http://localhost:${port}/changeUserBalance/:${currentUser?.id}`,
-                      {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                      }
-                    )
-                      .then((resp) => resp.json())
-                      .then((data) => {
-                        if (data.error) {
-                          alert(data.error);
-                          console.log(data.error);
-                        } else {
-                          fetch(
-                            `http://localhost:${port}/user/${currentUser?.id}`
-                          )
-                            .then((resp) => resp.json())
-                            .then((user) => setUpdatedUser(user));
-                        }
-                      });
+            onClick={(e) => {
+              e.preventDefault();
+              const data = {
+                balance: getTotal() - currentUser?.balance!,
+              };
+              if (getTotal() < currentUser?.balance!) {
+                fetch(
+                  `http://localhost:${port}/changeUserBalance/:${currentUser?.id}`,
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
                   }
-                }}
-              >
-                Buy
-              </button>
+                )
+                  .then((resp) => resp.json())
+                  .then((data) => {
+                    if (data.error) {
+                      alert(data.error);
+                      console.log(data.error);
+                    } else {
+                      fetch(`http://localhost:${port}/user/${currentUser?.id}`)
+                        .then((resp) => resp.json())
+                        .then((user) => setUpdatedUser(user));
+                    }
+                  });
+              }
+            }}
+          >
+            Buy
+          </button>
         </div>
       </div>
     </div>
   );
 }
+
+// test
