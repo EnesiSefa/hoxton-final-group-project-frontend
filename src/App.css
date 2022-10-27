@@ -346,12 +346,15 @@ select {
 /* Search */
 .search {
   float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border: 2px solid#0082e6;
+  border-radius: 60px;
+  margin: 1rem;
   font-size: 17px;
 }
+
 /* Home */
 .home {
   height: 100vh;
@@ -392,4 +395,14 @@ select {
   border-radius: 15px;
   /* border: 2px solid rgb(173, 173, 223); */
   padding: 10px;
+}
+
+.courses{
+  display: grid;
+  background-image: linear-gradient(rgba(0,8,51,0.9), rgba(0,8,51.,0.9) ), url(https://imgs.search.brave.com/e_KmPVWLI9Daj5yryj02yE9RnvfXviJEPw2sHh96fLk/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvcHJl/dmlld3MvMDAxLzkz/Ny82NDQvb3JpZ2lu/YWwvb25saW5lLWVk/dWNhdGlvbi1hcHBs/aWNhdGlvbi1sZWFy/bmluZy13b3JsZHdp/ZGUtb24tY29tcHV0/ZXItbW9iaWxlLXdl/YnNpdGUtYmFja2dy/b3VuZC1zb2NpYWwt/ZGlzdGFuY2UtY29u/Y2VwdC10aGUtY2xh/c3Nyb29tLXRyYWlu/aW5nLWNvdXJzZS1s/aWJyYXJ5LWlsbHVz/dHJhdGlvbi1mbGF0/LXZlY3Rvci5qcGc);
+}
+
+.searchBar{
+ display: grid;
+ place-content: center;
 }
