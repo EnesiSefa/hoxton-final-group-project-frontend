@@ -455,3 +455,16 @@ select {
   display: grid;
   grid-auto-flow: column;
 }
+/* CART  */
+
+
+.cart-container{
+  display: grid;
+}
+.cart-row{
+  display: grid;
+}
+.cart-col{
+  display: grid;
+  grid-template-columns: auto auto;
+}
