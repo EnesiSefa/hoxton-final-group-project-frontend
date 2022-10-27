@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 type Props = {
   currentUser: User | null;
 };
-export function Cart({ currentUser }: Props) {
+export function Cart({ currentUser , refreshPage}: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
@@ -17,6 +17,7 @@ export function Cart({ currentUser }: Props) {
       .then((rsp) => rsp.json())
       .then((data) => setCartItems(data));
   }, []);
+  console.log(cartItems)
   function getTotal() {
     let total = 0;
     for (let course of cartItems) {
@@ -48,7 +49,7 @@ export function Cart({ currentUser }: Props) {
       </div>
       <div className="cart-row">
         <div className="cart-col">
-          {cartItems.map((item) => (
+          {cartItems ? cartItems.map((item) => (
             <div className="cart-card">
               <div className="cart-header">
                 <h2 className="cart-subTitle">{item.course.title}</h2>
@@ -69,10 +70,28 @@ export function Cart({ currentUser }: Props) {
                   <div className="cart-footer-bottom-right"></div>
                 </div>
               </div>
+              <button
+                variant="text"
+                color="error"
+                onClick={() => {
+                  fetch(`http://localhost:${port}/cartitem/${item.id}`, {
+                    method: "DELETE",
+                    headers: {
+                      Authorization: localStorage.token,
+                    },
+                  })
+                    .then((rsp) => rsp.json())
+                    .then((data) => setCartItems(data));
+                  refreshPage();
+                }}
+              >
+                Remove
+              </button>
             </div>
-          ))}
+          )) : ""}
           <p>{getTotal().toFixed(2)}</p>
-          <button
+          
+          {/* <button
             onClick={(e) => {
               e.preventDefault();
               const data = {
@@ -104,7 +123,7 @@ export function Cart({ currentUser }: Props) {
             }}
           >
             Buy
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
