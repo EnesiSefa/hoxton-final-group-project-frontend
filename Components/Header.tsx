@@ -46,22 +46,18 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
               </div>
             </li>
 
-            <Link to={"/favorite"}>
-              <li className="header-li">Favorite</li>
-            </Link>
-
             <Box px={{ xs: 4 }}>
-          <Link to={"/cart"}>
-            <IconButton
-              size="large"
-              edge="end"
-              color="inherit"
-              aria-label="logo"
-            >
-              <ShoppingCartCheckoutSharpIcon />
-            </IconButton>
-          </Link>
-        </Box>
+              <Link to={"/cart"}>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  color="inherit"
+                  aria-label="logo"
+                >
+                  <ShoppingCartCheckoutSharpIcon />
+                </IconButton>
+              </Link>
+            </Box>
 
             <li>
               <button className="logIn-btn" onClick={signOutUser}>
