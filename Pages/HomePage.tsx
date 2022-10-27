@@ -36,8 +36,12 @@ export function HomePage() {
     //   <main></main>
     //   <footer></footer>
     // </div>
-    <section>
+    
+    <section className="courses" >
+      <div className="searchBar">
       <SearchBar setSearch={setSearch} />
+      </div>
+      <div className="courses-section">
       <ul className="courses-ul">
         {filteredCourses.map((course) => (
           <li className="courses">
@@ -54,6 +58,8 @@ export function HomePage() {
           </li>
         ))}
       </ul>
+      </div>
     </section>
+   
   );
 }
