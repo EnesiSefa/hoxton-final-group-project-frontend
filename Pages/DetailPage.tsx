@@ -39,13 +39,13 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
       <button
         className="add-to-cart-button"
         onClick={() => {
-          fetch(`http://localhost:4167/cartItem`, {
+          fetch(`http://localhost:${port}/cartItem`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              pizzaId: course.id,
+              courseId: course.id,
               userId: currentUser.id
             }),
           })
@@ -55,7 +55,7 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
                 alert(data.errors);
               } else {
                 setCartItem(data);
-                navigate("/orders");
+                navigate("/cart")
               }
             });
         }}

@@ -30,7 +30,7 @@ function App() {
     setCurrentUser(data.user);
     localStorage.token = data.token;
     // localStorage.user = JSON.stringify(data.user);
-    // navigate("/home");
+    navigate("/home");
   }
 
   function signInInstructor(data: any) {
