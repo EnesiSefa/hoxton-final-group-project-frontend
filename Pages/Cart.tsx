@@ -33,6 +33,7 @@ export function Cart() {
                   <p className="cart-price">
                     Price:  {(item.course.prices).toFixed(2)}
                   </p>
+                  <p></p>
                 </div>
                 <div className="cart-footer-bottom">
                   <div className="cart-footer-bottom-left">
