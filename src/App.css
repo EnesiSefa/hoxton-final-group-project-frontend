@@ -163,6 +163,9 @@ nav li {
 .logIn-btn:hover {
   cursor: pointer;
 }
+.header-cart{
+  margin-top: 3px;
+}
 
 /* Sign-Up */
 .sign-up {
