@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useReducer, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Footer } from "../Components/Footer";
 import { port } from "../src/port";
 import { Course, Review, User } from "../src/type";
 type Props = {
@@ -114,6 +115,7 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
           <></>
         )}
       </div>
+      <Footer/>
     </div>
   );
 }

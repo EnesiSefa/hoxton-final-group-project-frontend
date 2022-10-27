@@ -6,6 +6,7 @@ import { port } from "../src/port";
 import { SearchBar } from "../Pages/SearchBar";
 import { Link } from "react-router-dom";
 import { Home } from "./Home";
+import { Footer } from "../Components/Footer";
 
 
 type Props = {
@@ -52,7 +53,7 @@ export function HomePage() {
             >
               <article className="courses-item">
                 <img src={course.image} alt={course.title} width="100" />
-                <h4>{course.title}</h4>
+                <h4>{`${course.title.slice(0,25)} ${"..."}`}</h4>
                 <h2>{course.price}$</h2>
               </article>
             </Link>
@@ -60,6 +61,7 @@ export function HomePage() {
         ))}
       </ul>
       </div>
+      <Footer/>
     </section>
    
   );

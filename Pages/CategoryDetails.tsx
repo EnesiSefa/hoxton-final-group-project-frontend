@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { port } from "../src/port";
 import { Category, Course } from "../src/type";
+import { Footer } from "../Components/Footer";
+
 export function CategoryDetails() {
   const params = useParams();
   const [category, setCategory] = useState<Category | null>(null);
@@ -25,6 +27,7 @@ export function CategoryDetails() {
           </Link>
         </div>
       ))}
+      <Footer/>
     </div>
   );
 }
