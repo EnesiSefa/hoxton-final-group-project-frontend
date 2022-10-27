@@ -4,11 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
-<<<<<<< HEAD
   //   refreshPage: any;
-=======
-  refreshPage: () => void
->>>>>>> 2c14edc405859c5665c24ec2c5251a2b1b467c11
 };
 
 export function Cart({ currentUser, refreshPage }: Props) {
@@ -65,7 +61,11 @@ export function Cart({ currentUser, refreshPage }: Props) {
                     <h2 className="cart-subTitle">{item.course.title}</h2>
                   </div>
                   <div className="cart-body">
-                    <img src={item.course.image} height={50} alt="course here" />
+                    <img
+                      src={item.course.image}
+                      height={50}
+                      alt="course here"
+                    />
                   </div>
                   <div className="cart-footer">
                     <div className="cart-footer-top">
