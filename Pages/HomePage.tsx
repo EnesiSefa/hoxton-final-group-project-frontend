@@ -7,6 +7,7 @@ import { SearchBar } from "../Pages/SearchBar";
 import { Link } from "react-router-dom";
 import { Home } from "./Home";
 
+
 type Props = {
   currentUser: User | null;
   signOutUser: () => void;
