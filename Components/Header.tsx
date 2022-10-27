@@ -65,9 +65,9 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
               </button>
             </li>
           </nav>
-        ) : (
+         ) : ( 
           <header className="signIn-signUp">
-            {/* <Link to={"/signIn"}>
+             {/* <Link to={"/signIn"}>
               <button>
                 <li className="signIn-li">
                   SignIn
@@ -81,9 +81,9 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                   SignUp
                 </li>
                 </button>
-              </Link> */}
-          </header>
-        )}
+              </Link>  */}
+          </header> 
+         )} 
       </ul>
     </div>
   );

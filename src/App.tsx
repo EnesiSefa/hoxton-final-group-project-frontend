@@ -6,6 +6,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp } from "../Pages/SignUp";
 import { SignIn } from "../Pages/SignIn";
 import { HomePage } from "../Pages/HomePage";
+import { HomePageInstructor } from "../Pages/HomePageInstructor";
 import { Home } from "../Pages/Home";
 import { DetailPage } from "../Pages/DetailPage";
 import { CategoryDetails } from "../Pages/CategoryDetails";
@@ -89,7 +90,7 @@ function App() {
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
 
-        <Route
+       {currentUser && <Route
           path="/courses"
           element={
             <HomePage
@@ -99,7 +100,18 @@ function App() {
             // commented for the moment
             />
           }
-        />
+        />} 
+        {currentInstructor && <Route
+          path="/courses"
+          element={
+            <HomePageInstructor
+            // signOutUser={signOutUser}
+            // currentUser={currentUser}
+            // currentInstructor={currentInstructor}
+            // commented for the moment
+            />
+          }
+        />}
 
         <Route path="/home" element={<Home />} />
 
