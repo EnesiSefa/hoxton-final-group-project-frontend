@@ -1,7 +1,7 @@
 import { Component, useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Instructor, User } from "./type";
+import { Course, Instructor, User } from "./type";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp } from "../Pages/SignUp";
 import { SignIn } from "../Pages/SignIn";
@@ -19,6 +19,7 @@ function App() {
     null
   );
   const [error, setError] = useState<null | Array<string>>(null);
+  const [selectedCourse, setSelectedCourse] = useState<Course[]>([]);
   const refreshPage = () => {
     window.location.reload();
   };
@@ -98,9 +99,17 @@ function App() {
             />
           }
         />
+
+        <Route path="/home" element={<Home />} />
+
         <Route
           path="/course/:id"
-          element={<DetailPage currentUser={currentUser} />}
+          element={
+            <DetailPage
+              currentUser={currentUser}
+              setSelectedCourse={setSelectedCourse}
+            />
+          }
         />
         {/* <Route path="/categories" element={<Categories />} /> */}
         <Route path="/categories/:id" element={<CategoryDetails />} />
@@ -131,6 +140,7 @@ function App() {
               currentUser={currentUser}
               setError={setError}
               error={error}
+              selectedCourse={selectedCourse}
             />
           }
         />

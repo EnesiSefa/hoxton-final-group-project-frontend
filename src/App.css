@@ -40,6 +40,7 @@
   height: 380px;
   object-fit: contain;
   margin-left: 15px;
+  cursor: pointer;
 }
 .detail-container {
   margin-top: 40px;
@@ -75,7 +76,9 @@
   background-color: red;
   border: 2px solid red;
   border-radius: 10%;
+  cursor: pointer;
 }
+
 /* Sign-In */
 .sign-in {
   display: grid;
@@ -351,24 +354,27 @@ select {
 }
 /* Home */
 .home {
-  background-image: url("https://previews.123rf.com/images/natalimis/natalimis1705/natalimis170500105/78114060-online-course-in-hand-businessman-on-blurred-background-.jpg");
-  background-size: "cover";
-  display: grid;
-  /* gap: 80rem; */
-  height: 84.5vh;
-  /* margin-right: 20px; */
-  /* font-size:50px; */
+  height: 100vh;
+  background-image: url(https://imgs.search.brave.com/e_KmPVWLI9Daj5yryj02yE9RnvfXviJEPw2sHh96fLk/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvcHJl/dmlld3MvMDAxLzkz/Ny82NDQvb3JpZ2lu/YWwvb25saW5lLWVk/dWNhdGlvbi1hcHBs/aWNhdGlvbi1sZWFy/bmluZy13b3JsZHdp/ZGUtb24tY29tcHV0/ZXItbW9iaWxlLXdl/YnNpdGUtYmFja2dy/b3VuZC1zb2NpYWwt/ZGlzdGFuY2UtY29u/Y2VwdC10aGUtY2xh/c3Nyb29tLXRyYWlu/aW5nLWNvdXJzZS1s/aWJyYXJ5LWlsbHVz/dHJhdGlvbi1mbGF0/LXZlY3Rvci5qcGc);
   background-repeat: no-repeat;
+  background-size: cover;
+
+  display: grid;
+  grid-auto-flow: column;
 }
 /* Category */
 
 .category-details {
   display: grid;
-  /* grid-auto-flow: column; */
-  /* border: 2px solid black; */
-  /* border: none; */
+  grid-auto-flow: column;
+  margin-top: 50px;
+  border-radius: 15px;
+  border: 2px solid rgb(173, 173, 223);
+  width: 500px;
+  margin-left: 300px;
 }
 .category-title {
+  display: grid;
   font-size: large;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
@@ -376,11 +382,14 @@ select {
   color: #024579;
 }
 .category-image {
+  display: grid;
+  justify-items: center;
   width: 500px;
   height: 250px;
   object-fit: cover;
-  margin-left: 25rem;
+  /* margin-left: 20rem; */
   margin-top: 30px;
   border-radius: 15px;
   /* border: 2px solid rgb(173, 173, 223); */
+  padding: 10px;
 }

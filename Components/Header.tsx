@@ -25,7 +25,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
       <ul className="header-ul">
         {currentUser ? (
           <nav className="header">
-            <Link to="/homePage">
+            <Link to="/home">
               <h2 className="logo">Online Courses</h2>
             </Link>
 
