@@ -43,7 +43,7 @@ export function Cart({ currentUser }: Props) {
         <h3>{currentUser?.name}</h3>
         <h4>{updatedUser?.balance}</h4>
       </div>
-      <div className="cart-row">
+      <div className="cart-row"><p></p>
         <h1 className="cart-title">Your Cart</h1>
       </div>
       <div className="cart-row">
