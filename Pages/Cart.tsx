@@ -1,7 +1,6 @@
 import { CartItem, Course, User } from "../src/type";
 import { useEffect, useState } from "react";
-import { EmptyCart } from "../components/EmptyCart";
-import { FullCart } from "../components/FullCart";
+
 import React from "react";
 import { port } from "../src/port";
 type Props = {
