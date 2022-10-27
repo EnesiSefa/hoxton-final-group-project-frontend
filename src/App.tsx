@@ -100,7 +100,7 @@ function App() {
           }
         />
 
-        <Route path="/homePage" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
         <Route
           path="/course/:id"
