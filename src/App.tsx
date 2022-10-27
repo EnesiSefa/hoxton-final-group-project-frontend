@@ -36,6 +36,7 @@ function App() {
   function signInInstructor(data: any) {
     setCurrentInstructor(data.instructor);
     localStorage.token = data.token;
+    navigate("/home");
   }
 
   function signOutUser() {
