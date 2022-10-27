@@ -5,6 +5,7 @@ export type User = {
   email: string;
   password: string;
   balance: number | undefined;
+  carts : CartItem[]
   reviews: Review[];
 };
 

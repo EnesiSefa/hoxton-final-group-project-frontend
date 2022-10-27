@@ -21,6 +21,7 @@ export function Cart({
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [total, setTotal] = useState(0);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
+  const[cartsFromUser,setCartsFromUser] = useState([])
 
   useEffect(() => {
     fetch(`http://localhost:${port}/cartitems`, {
@@ -32,21 +33,18 @@ export function Cart({
       .then((data) => setCartItems(data));
     cartItems.map((item) => setTotal(item.course.price));
   }, []);
+  
 
   return (
     <div className="cart">
       <div>
         <ul>
-          
-            
-              <li>
-                <img src={selectedCourse.image} height={50} alt="" />
-                <h3>{selectedCourse.title}</h3>
-                <p>{selectedCourse.price}</p>
-              </li>
-              <h3>{total}</h3>
-            
-          
+          <li>
+            <img src={selectedCourse.image} height={50} alt="" />
+            <h3>{selectedCourse.title}</h3>
+            <p>{selectedCourse.price}</p>
+          </li>
+          <h3>{total}</h3>
         </ul>
         <button
           onClick={() => {
@@ -54,13 +52,16 @@ export function Cart({
               balance: currentUser?.balance! - total,
             };
             if (currentUser?.balance! > total) {
-              fetch(`http://localhost:${port}/user/${currentUser?.id}`, {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-              })
+              fetch(
+                `http://localhost:${port}/changeUserBalance/${currentUser?.id}`,
+                {
+                  method: "PATCH",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data),
+                }
+              )
                 .then((resp) => resp.json())
                 .then((data) => {
                   if (data.error) {

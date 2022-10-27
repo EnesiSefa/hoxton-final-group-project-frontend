@@ -34,22 +34,32 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
       <button
         className="add-to-cart-button"
         onClick={() => {
-          // const data = {
-          //   userId: currentUser?.id,
-          //   courseId: course.id,
-
-          // };
-
-          //   fetch(`http://localhost:${port}/cartitem`, {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //     },
-          //     body: JSON.stringify(data),
-          //   })
-          //     .then(resp) => resp.json())
-          //     .then(data)
-          setSelectedCourse(course);
+          const data = {
+            userId: currentUser?.id,
+            courseId: course.id,
+          };
+          fetch(
+            `http://localhost:${port}//addtoCart/:${currentUser?.id}/:${course.id}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          )
+            .then((resp) => resp.json())
+            .then((data) => {
+              if (data.error) {
+                alert(data.error);
+                console.log(data.error);
+              } else {
+                fetch(`http://localhost:${port}/course/${params.id}`)
+                  .then((resp) => resp.json())
+                  .then((courseFromServer) => setCourse(courseFromServer));
+              }
+            });
+            
         }}
       >
         Add to cart
