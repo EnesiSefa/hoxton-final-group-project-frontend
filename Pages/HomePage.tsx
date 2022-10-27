@@ -52,9 +52,14 @@ export function HomePage() {
               style={{ textDecoration: `none` }}
             >
               <article className="courses-item">
-                <img src={course.image} alt={course.title} width="100" />
-                <h4>{`${course.title.slice(0,25)} ${"..."}`}</h4>
-                <h2>{course.price}$</h2>
+                <img className="course-img" src={course.image} alt={course.title} width="100" />
+                <div className="name-price">
+                  <div className="course-name">
+                <h4 className="courseName">{`${course.title.slice(0,21)}`}</h4>
+                <p>...</p></div>
+                <p className="courseDesc">{`${course.description.slice(0,100)} ${"..."}`}$</p>
+                <h2 className="coursePrice">{course.price}$</h2>
+                </div>
               </article>
             </Link>
           </li>
