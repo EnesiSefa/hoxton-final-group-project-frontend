@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { port } from "../src/port";
 import { CartItem, Course, User } from "../src/type";
+
 type Props = {
   currentUser: User | null;
+  refreshPage: () => void
 };
+
 export function Cart({ currentUser, refreshPage }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
+
   useEffect(() => {
     fetch(`http://localhost:${port}/cartItems`, {
       headers: {
