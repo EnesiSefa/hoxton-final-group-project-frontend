@@ -10,6 +10,7 @@ type Props = {
   currentUser: User | null;
   signOutUser: () => void;
   currentInstructor: Instructor | null;
+  setSelectedCourse: (course:Course) => void;
 };
 export function HomePage() {
   const [courses, setCourses] = useState<Course[]>([]);
