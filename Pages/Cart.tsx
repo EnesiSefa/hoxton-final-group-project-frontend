@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 type Props = {
   currentUser: User | null;
 };
-export function Cart({ currentUser , refreshPage}: Props) {
+export function Cart({ currentUser, refreshPage }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
@@ -17,7 +17,7 @@ export function Cart({ currentUser , refreshPage}: Props) {
       .then((rsp) => rsp.json())
       .then((data) => setCartItems(data));
   }, []);
-  console.log(cartItems)
+  console.log(cartItems);
   function getTotal() {
     let total = 0;
     for (let course of cartItems) {
@@ -44,54 +44,56 @@ export function Cart({ currentUser , refreshPage}: Props) {
         <h3>{currentUser?.name}</h3>
         <h4>{updatedUser?.balance}</h4>
       </div>
-      <div className="cart-row"><p></p>
+      <div className="cart-row">
+        <p></p>
         <h1 className="cart-title">Your Cart</h1>
       </div>
       <div className="cart-row">
         <div className="cart-col">
-          {cartItems ? cartItems.map((item) => (
-            <div className="cart-card">
-              <div className="cart-header">
-                <h2 className="cart-subTitle">{item.course.title}</h2>
-              </div>
-              <div className="cart-body">
-                <img src={item.course.image} alt="course here" />
-              </div>
-              <div className="cart-footer">
-                <div className="cart-footer-top">
-                  <p className="cart-price">
-                    Price: {item.course.price.toFixed(2)}
-                  </p>
-                </div>
-                <div className="cart-footer-bottom">
-                  <div className="cart-footer-bottom-left">
-                    <p onClick={() => {}} />
+          {cartItems
+            ? cartItems.map((item) => (
+                <div className="cart-card">
+                  <div className="cart-header">
+                    <h2 className="cart-subTitle">{item.course.title}</h2>
                   </div>
-                  <div className="cart-footer-bottom-right"></div>
+                  <div className="cart-body">
+                    <img src={item.course.image} alt="course here" />
+                  </div>
+                  <div className="cart-footer">
+                    <div className="cart-footer-top">
+                      <p className="cart-price">
+                        Price: {item.course.price.toFixed(2)}
+                      </p>
+                    </div>
+                    <div className="cart-footer-bottom">
+                      <div className="cart-footer-bottom-left">
+                        <p onClick={() => {}} />
+                      </div>
+                      <div className="cart-footer-bottom-right"></div>
+                    </div>
+                  </div>
+                  <button
+                    variant="text"
+                    color="error"
+                    onClick={() => {
+                      fetch(`http://localhost:${port}/cartitem/${item.id}`, {
+                        method: "DELETE",
+                        headers: {
+                          Authorization: localStorage.token,
+                        },
+                      })
+                        .then((rsp) => rsp.json())
+                        .then((data) => setCartItems(data));
+                      refreshPage();
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
-              </div>
-              <button
-                variant="text"
-                color="error"
-                onClick={() => {
-                  fetch(`http://localhost:${port}/cartitem/${item.id}`, {
-                    method: "DELETE",
-                    headers: {
-                      Authorization: localStorage.token,
-                    },
-                  })
-                    .then((rsp) => rsp.json())
-                    .then((data) => setCartItems(data));
-                  refreshPage();
-                 
-                }}
-              >
-                Remove
-              </button>
-            </div>
-          )) : ""}
+              ))
+            : ""}
           <p>{getTotal().toFixed(2)}</p>
-          
+
           {/* <button
             onClick={(e) => {
               e.preventDefault();
