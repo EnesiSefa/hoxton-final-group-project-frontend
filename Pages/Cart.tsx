@@ -3,6 +3,7 @@ import { port } from "../src/port";
 import { CartItem, Course, User } from "../src/type";
 type Props = {
   currentUser: User | null;
+  //   refreshPage: any;
 };
 export function Cart({ currentUser, refreshPage }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -73,6 +74,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                     </div>
                   </div>
                   <button
+                    // @ts-ignore
                     variant="text"
                     color="error"
                     onClick={() => {
@@ -83,7 +85,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                         },
                       })
                         .then((rsp) => rsp.json())
-                        .then((data) => setCartItems(data));
+                        .then((course) => setCartItems(course));
                       refreshPage();
                     }}
                   >
