@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { port } from "../src/port";
 import { CartItem, Course, User } from "../src/type";
+
 type Props = {
   currentUser: User | null;
+  refreshPage: () => void
 };
+
 export function Cart({ currentUser, refreshPage }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
+
   useEffect(() => {
     fetch(`http://localhost:${port}/cartItems`, {
       headers: {
@@ -57,7 +61,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                     <h2 className="cart-subTitle">{item.course.title}</h2>
                   </div>
                   <div className="cart-body">
-                    <img src={item.course.image} alt="course here" />
+                    <img src={item.course.image} height={50} alt="course here" />
                   </div>
                   <div className="cart-footer">
                     <div className="cart-footer-top">
