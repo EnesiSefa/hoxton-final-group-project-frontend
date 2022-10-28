@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
-  //   refreshPage: any;
+    refreshPage: any;
 };
 
 export function Cart({ currentUser, refreshPage }: Props) {
