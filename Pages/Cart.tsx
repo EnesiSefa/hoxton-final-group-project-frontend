@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
-  refreshPage: () => void
+  refreshPage: () => void;
 };
 
 export function Cart({ currentUser, refreshPage }: Props) {
@@ -44,61 +44,52 @@ export function Cart({ currentUser, refreshPage }: Props) {
 
   return (
     <div className="cart-container">
-      <div>
-        <h3>{currentUser?.name}</h3>
-        <h4>{updatedUser?.balance}</h4>
+      <div className="userData">
+        <h1 className="userName">{`${currentUser?.name}${"'s Cart"}`}</h1>
+        <h4 className="userBalance">{updatedUser?.balance}</h4>
       </div>
-      <div className="cart-row">
-        <p></p>
-        <h1 className="cart-title">Your Cart</h1>
-      </div>
-      <div className="cart-row">
-        <div className="cart-col">
-          {cartItems
-            ? cartItems.map((item) => (
-                <div className="cart-card">
-                  <div className="cart-header">
-                    <h2 className="cart-subTitle">{item.course.title}</h2>
-                  </div>
-                  <div className="cart-body">
-                    <img src={item.course.image} height={50} alt="course here" />
-                  </div>
-                  <div className="cart-footer">
-                    <div className="cart-footer-top">
-                      <p className="cart-price">
-                        Price: {item.course.price.toFixed(2)}
-                      </p>
-                    </div>
-                    <div className="cart-footer-bottom">
-                      <div className="cart-footer-bottom-left">
-                        <p onClick={() => {}} />
-                      </div>
-                      <div className="cart-footer-bottom-right"></div>
-                    </div>
-                  </div>
-                  <button
-                    variant="text"
-                    color="error"
-                    onClick={() => {
-                      fetch(`http://localhost:${port}/cartitem/${item.id}`, {
-                        method: "DELETE",
-                        headers: {
-                          Authorization: localStorage.token,
-                        },
-                      })
-                        .then((rsp) => rsp.json())
-                        .then((data) => setCartItems(data));
-                      refreshPage();
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))
-            : ""}
-          <p>{getTotal().toFixed(2)}</p>
+      {cartItems
+        ? cartItems.map((item) => (
+            <div className="cart-body">
+              <div className="cart-img-div">
+                <img
+                  className="cart-img"
+                  src={item.course.image}
+                  height={50}
+                  alt="course here"
+                />
+              </div>
+              <div className="cart-desc">
+                <h2 className="cart-subTitle">{item.course.title}</h2>
+                <p className="cart-price">
+                  Price: {item.course.price.toFixed(2)}
+                </p>
+                <p onClick={() => {}} />
+                <button
+                  className="delete-cartItem"
+                  variant="text"
+                  color="error"
+                  onClick={() => {
+                    fetch(`http://localhost:${port}/cartitem/${item.id}`, {
+                      method: "DELETE",
+                      headers: {
+                        Authorization: localStorage.token,
+                      },
+                    })
+                      .then((rsp) => rsp.json())
+                      .then((data) => setCartItems(data));
+                    refreshPage();
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))
+        : ""}
+      <p className="total-Price">Total price: ${getTotal().toFixed(2)}</p>
 
-          {/* <button
+      {/* <button
             onClick={(e) => {
               e.preventDefault();
               const data = {
@@ -131,8 +122,6 @@ export function Cart({ currentUser, refreshPage }: Props) {
           >
             Buy
           </button> */}
-        </div>
-      </div>
     </div>
   );
 }

@@ -138,7 +138,6 @@ export function SignUp({ signInUser, signInInstructor }: Props) {
                   />
                 </div>
                 <p>
-                  {" "}
                   Already have an account? <Link to={`/SignIn`}>Sign in </Link>
                 </p>
                 <button type="submit">Sign Up</button>

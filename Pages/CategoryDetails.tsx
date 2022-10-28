@@ -15,19 +15,19 @@ export function CategoryDetails() {
   return (
     <div className="category-details">
       {category?.courses.map((course: Course) => (
-        <div>
+        <div className="courses-category">
           <Link to={`/course/${course.id}`} style={{ textDecoration: `none` }}>
-            <h1 className="category-title">{course.title}</h1>
             <img
               className="category-image"
               src={course.image}
               alt=""
               key={category.id}
             />
+             <h1 className="category-title">{course.title}</h1>
           </Link>
         </div>
       ))}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

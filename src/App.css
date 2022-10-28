@@ -28,32 +28,46 @@
   list-style: none;
 }
 /* detail-section */
-.detail-section {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 3rem;
+
+
+.detail{
+  background-color: #dce1e7;
+  height: 100%;
+ 
 }
+
+.detail-section{
+  display: grid;
+  background-color: #dce1e7;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: auto auto;
+}
+
+.detail-img {
+padding: 3rem;
+}
+
 .detail-section img {
   display: grid;
-  margin-top: 40px;
   width: 500px;
   height: 380px;
   object-fit: contain;
   margin-left: 15px;
-  cursor: pointer;
 }
 .detail-container {
-  margin-top: 40px;
+  padding: 5rem;
+  display: grid;
+  justify-items: start;
 }
 .detail-container h2 {
-  display: grid;
   place-content: center;
+  font-size: 30px;
 }
 .detail-description {
   display: grid;
   margin: 10px;
   place-content: center;
-  margin-top: 50px;
 }
 .detail-type {
   display: grid;
@@ -64,22 +78,24 @@
   display: grid;
   margin: 10px;
   margin-right: 70px;
-  place-content: end;
+  place-content: start;
 }
 
 .add-to-cart-button {
-  /* display: grid; */
-  padding: 10px;
-  /* place-items: center; */
-  margin-left: 1000px;
+
+  width: 7rem;
+  padding: 0.5rem;
   color: white;
   background-color: red;
   border: 2px solid red;
-  border-radius: 10%;
+  border-radius: 20px;
   cursor: pointer;
+  
 }
 
 /* Sign-In */
+
+
 .sign-in {
   display: grid;
   place-content: center;
@@ -97,14 +113,24 @@
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  border: 2px solid royalblue;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .sign-in button {
+  display: grid;
   color: white;
   background-color: red;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 0.5rem;
+  margin-top: 15px;
+  margin-left: 45px;
+  width: 230px;
+  padding: 0.5rem;
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .sign-in button:hover {
@@ -176,7 +202,7 @@ nav li {
 }
 
 .signIn-signUp {
-  padding-top: 2.1rem;
+
   display: grid;
   grid-auto-flow: column;
   place-content: center;
@@ -230,14 +256,14 @@ margin: 60px;
   margin-top: 10px;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  border: 2px solid black;
+ 
 }
 .sign-up div input {
   display: grid;
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
 }
 .sign-up button {
   display: grid;
@@ -248,6 +274,12 @@ margin: 60px;
   margin-top: 15px;
   margin-left: 45px;
   width: 230px;
+  padding: 0.5rem;
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .Sing-Up-As {
   margin-top: 40px;
@@ -277,7 +309,6 @@ select {
   margin-top: 15px;
   width: 200px;
 }
-*/
 
 /* .... */
 
@@ -306,8 +337,7 @@ select {
 }
 .dropbtn {
   background-color: transparent;
-  color: black;
-  padding: 16px;
+  color: white;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -329,9 +359,10 @@ select {
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 10px;
   text-decoration: none;
-  display: block;
+  display: grid;
+  font-size: 12px;
 }
 
 .dropdown-content a:hover {
@@ -340,10 +371,6 @@ select {
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: white;
 }
 
 /* Search */
@@ -455,3 +482,134 @@ select {
   grid-auto-flow: column;
 }
 
+
+
+/* category page */
+
+.category-details{
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.courses-category{
+  border:  none;
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.category-image{
+  width: 100%;
+}
+
+/* Cart */
+
+.cart-container{
+  display: grid;
+  background-color: #dce1e7;
+  height: 100vh;
+  width: 100%;
+}
+
+.userName{
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+
+.cart-body{
+  display: grid;
+  grid-auto-flow: column;
+  margin-left: 5rem;
+  gap: 10rem;
+  margin-bottom: 4rem;
+}
+
+.cart-img-div{
+  display: grid;
+  width: 100px;
+}
+
+.cart-img{
+  width: 350px;
+  height: 130px;
+ padding-right: 3rem;
+  border-right: 3px solid #000000;
+}
+
+.cart-desc{
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 3rem;
+}
+
+
+.cart-subTitle{
+  color: rgb(0, 0, 0);
+  font-size: medium;
+}
+
+.cart-price{
+  color: rgb(130, 130, 9);
+}
+
+.delete-cartItem{
+  width: 5rem;
+  padding: 0.5rem;
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.total-Price{
+  display: grid;
+  margin-bottom: 2rem;
+  place-content: center;
+  font-size: large;
+}
+
+
+/* review */
+
+.reviews-section{
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.leave-review{
+  padding: 0.35rem;
+  border: none;
+  border: rgb(212, 193, 48) 2px solid;
+  font-size: 17px;
+  background-color: #dce1e7;
+}
+
+.post-review{
+  width: 5rem;
+  padding: 0.5rem;
+  color: white;
+  background-color: rgb(212, 193, 48);
+  border: 2px solid rgb(212, 193, 48);
+  cursor: pointer;
+}
+
+.review-li{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 1rem;
+}
+
+li h3{
+  font-weight: 600;
+  color: green;
+}

@@ -10,7 +10,7 @@ type Props = {
 export function SignIn({ signInInstructor, signInUser }: Props) {
   let navigate = useNavigate();
   return (
-    <div>
+    <div className="signIn-form">
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           className="space-y-6"
@@ -90,6 +90,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 type="email"
                 name="email"
                 required
+                placeholder="Enter your email..."
               />
             </div>
             {/* test */}
@@ -99,6 +100,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                 type="password"
                 name="password"
                 required
+                placeholder="Enter your password..."
               />
             </div>
           <p> If you don`t have an account <Link to={`/SignUp`}>Sign up </Link></p>
