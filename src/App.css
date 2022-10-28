@@ -398,12 +398,12 @@ select {
 
 .category-details {
   display: grid;
-  grid-auto-flow: column;
+  /* grid-auto-flow: column; */
   margin-top: 50px;
   border-radius: 15px;
   border: 2px solid rgb(224, 202, 202);
   width: 500px;
-  margin-left: 300px;
+  /* margin-left: 300px; */
 }
 .category-title {
   display: grid;
