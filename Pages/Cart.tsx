@@ -11,7 +11,12 @@ type Props = {
   signOutUser: () => void;
 };
 
-export function Cart({ currentUser, refreshPage,currentInstructor,signOutUser }: Props) {
+export function Cart({
+  currentUser,
+  refreshPage,
+  currentInstructor,
+  signOutUser,
+}: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
@@ -48,7 +53,6 @@ export function Cart({ currentUser, refreshPage,currentInstructor,signOutUser }:
 
   return (
     <div className="cart-container">
-<<<<<<< HEAD
       <Header
         currentUser={currentUser}
         signOutUser={signOutUser}
@@ -109,54 +113,8 @@ export function Cart({ currentUser, refreshPage,currentInstructor,signOutUser }:
               ))
             : ""}
           <p>{getTotal().toFixed(2)}</p>
-=======
-      <div className="userData">
-        <h1 className="userName">{`${currentUser?.name}${"'s Cart"}`}</h1>
-        <h4 className="userBalance">{updatedUser?.balance}</h4>
-      </div>
-      {cartItems
-        ? cartItems.map((item) => (
-            <div className="cart-body">
-              <div className="cart-img-div">
-                <img
-                  className="cart-img"
-                  src={item.course.image}
-                  height={50}
-                  alt="course here"
-                />
-              </div>
-              <div className="cart-desc">
-                <h2 className="cart-subTitle">{item.course.title}</h2>
-                <p className="cart-price">
-                  Price: {item.course.price.toFixed(2)}
-                </p>
-                <p onClick={() => {}} />
-                <button
-                  className="delete-cartItem"
-                  variant="text"
-                  color="error"
-                  onClick={() => {
-                    fetch(`http://localhost:${port}/cartitem/${item.id}`, {
-                      method: "DELETE",
-                      headers: {
-                        Authorization: localStorage.token,
-                      },
-                    })
-                      .then((rsp) => rsp.json())
-                      .then((data) => setCartItems(data));
-                    refreshPage();
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-          ))
-        : ""}
-      <p className="total-Price">Total price: ${getTotal().toFixed(2)}</p>
->>>>>>> ccd82d84aad94a1616ec3ef3d7e868f21b16f39c
 
-      {/* <button
+          {/* <button
             onClick={(e) => {
               e.preventDefault();
               const data = {
@@ -189,8 +147,8 @@ export function Cart({ currentUser, refreshPage,currentInstructor,signOutUser }:
           >
             Buy
           </button> */}
+        </div>
+      </div>
     </div>
   );
 }
-
-// test

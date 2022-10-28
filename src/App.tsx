@@ -137,7 +137,16 @@ function App() {
           }
         />
         {/* <Route path="/categories" element={<Categories />} /> */}
-        <Route path="/categories/:id" element={<CategoryDetails />} />
+        <Route
+          path="/categories/:id"
+          element={
+            <CategoryDetails
+              currentUser={currentUser}
+              signOutUser={signOutUser}
+              currentInstructor={currentInstructor}
+            />
+          }
+        />
 
         <Route
           path="/signUp"
