@@ -59,7 +59,7 @@ export function Cart({
         currentInstructor={currentInstructor}
       />
       <div className="current-user-info">
-        <h3>Cart of {currentUser?.name}</h3>
+        <h2 className="userName">Cart of {currentUser?.name}</h2>
         <h4>{updatedUser?.balance}</h4>
       </div>
 
@@ -68,30 +68,31 @@ export function Cart({
           {cartItems
             ? cartItems.map((item) => (
                 <div className="cart-card">
-                  <div className="cart-header">
-                    <h3 className="cart-subTitle">{item.course.title}</h3>
-                  </div>
                   <div className="cart-body">
-                    <img
+                    <img className="cart-img"
                       src={item.course.image}
                       height={50}
                       alt="course here"
                     />
                   </div>
-                  <div className="cart-footer">
-                    <div className="cart-footer-top">
+                      <div className="cart-desc">
+                    <h3 className="cart-subTitle">{item.course.title}</h3>
+                  
+                  
+                
+                   
                       <p className="cart-price">
                         Price: {item.course.price.toFixed(2)}
                       </p>
-                    </div>
+                 
                     <div className="cart-footer-bottom">
                       <div className="cart-footer-bottom-left">
                         <p onClick={() => {}} />
                       </div>
                       <div className="cart-footer-bottom-right"></div>
                     </div>
-                  </div>
-                  <button
+             
+                  <button className="delete-cartItem"
                     // @ts-ignore
                     variant="text"
                     color="error"
@@ -109,10 +110,11 @@ export function Cart({
                   >
                     Remove
                   </button>
+                  </div>
                 </div>
               ))
             : ""}
-          <p>{getTotal().toFixed(2)}</p>
+          <p className="total-Price">Total: {getTotal().toFixed(2)}</p>
 
           {/* <button
             onClick={(e) => {
