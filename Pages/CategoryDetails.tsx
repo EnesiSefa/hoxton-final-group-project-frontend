@@ -26,31 +26,39 @@ export function CategoryDetails({
       .then((singleCategory) => setCategory(singleCategory));
   }, []);
   return (
-    <>
+    <div className="category-page">
       <Header
         currentUser={currentUser}
         signOutUser={signOutUser}
         currentInstructor={currentInstructor}
       />
+      <h1 className="category-name">{category?.name}</h1>
       <div className="category-details">
         {category?.courses.map((course: Course) => (
-          <div>
+          <div className="category-det">
             <Link
               to={`/course/${course.id}`}
               style={{ textDecoration: `none` }}
             >
-              <h1 className="category-title">{course.title}</h1>
-              <img
-                className="category-image"
+              <div>
+                <img
+                className="course-img"
                 src={course.image}
                 alt=""
                 key={category.id}
               />
+              </div>
+              <div>
+              <h5 className="courseName">{course.title}</h5>
+              <p className="courseDesc">{`${course.description.slice(0, 100)} ${"..."}`}$</p>
+                      <h2 className="coursePrice">{course.price}$</h2>
+                      </div>
             </Link>
           </div>
         ))}
-        <Footer />
+       
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }

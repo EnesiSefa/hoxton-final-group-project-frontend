@@ -65,8 +65,8 @@ export function HomePage({ currentUser,signOutUser,currentInstructor}: Props) {
                     <img className="course-img" src={course.image} alt={course.title} width="100" />
                     <div className="name-price">
                       <div className="course-name">
-                        <h4 className="courseName">{course.title}</h4>
-                        <p>...</p></div>
+                        <h5 className="courseName">{course.title}</h5>
+                        </div>
                       <p className="courseDesc">{`${course.description.slice(0, 100)} ${"..."}`}$</p>
                       <h2 className="coursePrice">{course.price}$</h2>
                     </div>
