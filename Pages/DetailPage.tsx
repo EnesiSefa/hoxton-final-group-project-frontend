@@ -27,16 +27,16 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
   return (
     <div className="detail">
       <div className="detail-section">
-        <img src={course.image} alt="photot of the cours" width={500} />
+        <div className="detail-img">
+        <img className="det-img" src={course.image} alt="photot of the cours" width={500} />
+        </div>
+       
 
         <div className="detail-container">
           <h2>{course.title}</h2>
           <p className="detail-description">{course.description}</p>
           {/* <p className="detail-type"> Type: {course.type}</p> */}
           <h4 className="detail-price">Price: {course.price}$</h4>
-        </div>
-      </div>
-
       <button
         className="add-to-cart-button"
         onClick={() => {
@@ -63,15 +63,9 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
       >
         Add to cart
       </button>
+      </div>
       <div className="reviews-section">
-        <ul>
-          {course.reviews.map((review) => (
-            <li>
-              <h3>{review.user.name}</h3>
-              <p>{review.review}</p>
-            </li>
-          ))}
-        </ul>
+  
         {currentUser ? (
           <form
             action=""
@@ -108,13 +102,22 @@ export function DetailPage({ currentUser, setSelectedCourse }: Props) {
             }}
           >
             <label htmlFor="review">
-              <input type="text" id="review" name="review" />
+              <input className="leave-review" type="text" id="review" name="review" placeholder="leave a review" />
             </label>
-            <button type="submit">post</button>
+            <button className="post-review" type="submit">post</button>
           </form>
         ) : (
           <></>
         )}
+            <ul>
+          {course.reviews.map((review) => (
+            <li className="review-li">
+              <h3>{review.user.name}:</h3>
+              <p>{review.review}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
       </div>
       <Footer/>
     </div>

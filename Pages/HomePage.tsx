@@ -43,19 +43,13 @@ export function HomePage({ currentUser,signOutUser,currentInstructor}: Props) {
   );
 
   return (
-    <>
-      <div>
-        <h1>Home Page</h1>
-        <Header
-          currentUser={currentUser}
-          signOutUser={signOutUser}
-          currentInstructor={currentInstructor}
-        />
-        <main></main>
-        <footer></footer>
-      </div>
 
-      <section className="courses">
+      <><div>
+      <Header
+        currentUser={currentUser}
+        signOutUser={signOutUser}
+        currentInstructor={currentInstructor} />
+    </div><section className="courses">
         <div className="searchBar">
           <SearchBar setSearch={setSearch} />
         </div>
@@ -68,9 +62,14 @@ export function HomePage({ currentUser,signOutUser,currentInstructor}: Props) {
                   style={{ textDecoration: `none` }}
                 >
                   <article className="courses-item">
-                    <img src={course.image} alt={course.title} width="100" />
-                    <h4>{course.title}</h4>
-                    <h2>{course.price}$</h2>
+                    <img className="course-img" src={course.image} alt={course.title} width="100" />
+                    <div className="name-price">
+                      <div className="course-name">
+                        <h4 className="courseName">{course.title}</h4>
+                        <p>...</p></div>
+                      <p className="courseDesc">{`${course.description.slice(0, 100)} ${"..."}`}$</p>
+                      <h2 className="coursePrice">{course.price}$</h2>
+                    </div>
                   </article>
                 </Link>
               </li>
@@ -78,9 +77,7 @@ export function HomePage({ currentUser,signOutUser,currentInstructor}: Props) {
           </ul>
         </div>
         <Footer />
-      </section>
-    </>
+      </section></>
+    
   );
 }
-
-// test
