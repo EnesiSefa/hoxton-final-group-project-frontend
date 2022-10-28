@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { Header } from "../Components/Header";
 import { port } from "../src/port";
-import { CartItem, Course, User } from "../src/type";
+import { CartItem, Course, Instructor, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
-    refreshPage: any;
+  refreshPage: any;
+
+  currentInstructor: Instructor | null;
+  signOutUser: () => void;
 };
 
-export function Cart({ currentUser, refreshPage }: Props) {
+export function Cart({ currentUser, refreshPage,currentInstructor,signOutUser }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [updatedUser, setUpdatedUser] = useState<User | null>(null);
   // const [cartItem, setCartItem] = useState(null);
@@ -44,11 +48,16 @@ export function Cart({ currentUser, refreshPage }: Props) {
 
   return (
     <div className="cart-container">
+      <Header
+        currentUser={currentUser}
+        signOutUser={signOutUser}
+        currentInstructor={currentInstructor}
+      />
       <div className="current-user-info">
         <h3>Cart of {currentUser?.name}</h3>
         <h4>{updatedUser?.balance}</h4>
       </div>
-      
+
       <div className="cart-row">
         <div className="cart-col">
           {cartItems
