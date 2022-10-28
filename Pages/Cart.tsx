@@ -4,7 +4,7 @@ import { CartItem, Course, User } from "../src/type";
 
 type Props = {
   currentUser: User | null;
-  refreshPage: () => void
+  //   refreshPage: any;
 };
 
 export function Cart({ currentUser, refreshPage }: Props) {
@@ -58,7 +58,11 @@ export function Cart({ currentUser, refreshPage }: Props) {
                     <h3 className="cart-subTitle">{item.course.title}</h3>
                   </div>
                   <div className="cart-body">
-                    <img src={item.course.image} height={50} alt="course here" />
+                    <img
+                      src={item.course.image}
+                      height={50}
+                      alt="course here"
+                    />
                   </div>
                   <div className="cart-footer">
                     <div className="cart-footer-top">
@@ -74,6 +78,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                     </div>
                   </div>
                   <button
+                    // @ts-ignore
                     variant="text"
                     color="error"
                     onClick={() => {
@@ -84,7 +89,7 @@ export function Cart({ currentUser, refreshPage }: Props) {
                         },
                       })
                         .then((rsp) => rsp.json())
-                        .then((data) => setCartItems(data));
+                        .then((course) => setCartItems(course));
                       refreshPage();
                     }}
                   >
