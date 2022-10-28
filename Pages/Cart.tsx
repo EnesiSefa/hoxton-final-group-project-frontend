@@ -44,21 +44,18 @@ export function Cart({ currentUser, refreshPage }: Props) {
 
   return (
     <div className="cart-container">
-      <div>
-        <h3>{currentUser?.name}</h3>
+      <div className="current-user-info">
+        <h3>Cart of {currentUser?.name}</h3>
         <h4>{updatedUser?.balance}</h4>
       </div>
-      <div className="cart-row">
-        <p></p>
-        <h1 className="cart-title">Your Cart</h1>
-      </div>
+      
       <div className="cart-row">
         <div className="cart-col">
           {cartItems
             ? cartItems.map((item) => (
                 <div className="cart-card">
                   <div className="cart-header">
-                    <h2 className="cart-subTitle">{item.course.title}</h2>
+                    <h3 className="cart-subTitle">{item.course.title}</h3>
                   </div>
                   <div className="cart-body">
                     <img src={item.course.image} height={50} alt="course here" />

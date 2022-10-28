@@ -62,6 +62,7 @@ export function SignIn({ signInInstructor, signInUser }: Props) {
                     alert(data.error);
                   } else {
                     signInInstructor(data);
+                    navigate("/home");
                   }
                 });
               localStorage.instructor = "instructor";

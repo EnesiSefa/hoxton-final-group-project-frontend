@@ -12,55 +12,55 @@ type Props = {
   currentUser: User | null;
   signOutUser: () => void;
   currentInstructor: Instructor | null;
-  setSelectedCourse: (course: Course) => void;
 };
-export function HomePage({ currentInstructor }: Props) {
+export function HomePage({ currentUser,signOutUser,currentInstructor}: Props) {
   const [courses, setCourses] = useState<Course[]>([]);
+  const [instructor, setInstructor] = useState(null);
+  const [instructorCourses, setInstructorCourses] = useState([]);
+
   const [search, setSearch] = useState("");
-  const [instructorCourses, setinstructorCourses] = useState<Course[]>([]);
+
   useEffect(() => {
     fetch(`http://localhost:${port}/courses`)
       .then((resp) => resp.json())
-      .then((coursesFromServer) => setCourses(coursesFromServer));
+      .then((coursesFromServer) => {
+        setCourses(coursesFromServer);
+      });
+    
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:${port}/instructor${currentInstructor?.id}`)
+    fetch(
+      `http://localhost:${port}/instructor/${currentInstructor?.id}/courses`
+    )
       .then((resp) => resp.json())
-      .then((instructor: Instructor) =>
-        setinstructorCourses(instructor.courses)
-      );
+      .then((courses) => {
+        setInstructorCourses(courses);
+      });
   }, []);
-
-  console.log(courses);
 
   const filteredCourses = courses.filter((course) =>
     course.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const filteredCoursesFromInstructor = instructorCourses.filter((course) =>
-    course.title.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    // <div>
-    //   <h1>Home Page</h1>
-    //   <Header
-    //     currentUser={currentUser}
-    //     signOutUser={signOutUser}
-    //     currentInstructor={currentInstructor}
-    //   />
-    //   <main></main>
-    //   <footer></footer>
-    // </div>
-
-    <section className="courses">
-      <div className="searchBar">
-        <SearchBar setSearch={setSearch} />
+    <>
+      <div>
+        <h1>Home Page</h1>
+        <Header
+          currentUser={currentUser}
+          signOutUser={signOutUser}
+          currentInstructor={currentInstructor}
+        />
+        <main></main>
+        <footer></footer>
       </div>
-      <div className="courses-section">
-        
+
+      <section className="courses">
+        <div className="searchBar">
+          <SearchBar setSearch={setSearch} />
+        </div>
+        <div className="courses-section">
           <ul className="courses-ul">
-          
             {filteredCourses.map((course) => (
               <li className="courses">
                 <Link
@@ -76,9 +76,9 @@ export function HomePage({ currentInstructor }: Props) {
               </li>
             ))}
           </ul>
-        
-      </div>
-      <Footer />
-    </section>
+        </div>
+        <Footer />
+      </section>
+    </>
   );
 }

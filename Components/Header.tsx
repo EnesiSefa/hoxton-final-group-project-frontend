@@ -23,29 +23,28 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
   return (
     <div className="hader-section">
       <ul className="header-ul">
-        {currentUser ? (
-          <nav className="header">
-            <Link to="/home">
-              <h2 className="logo">Online Courses</h2>
-            </Link>
+        <nav className="header">
+          <Link to="/home">
+            <h2 className="logo">Online Courses</h2>
+          </Link>
 
-            <Link to="/courses">
-              <li className="header-li">Courses</li>
-            </Link>
-            <li>
-              <div className="dropdown">
-                <button className="dropbtn">Categories</button>
+          <Link to={currentUser ? "/courses" : "/coursesInstructor"}>
+            <li className="header-li">Courses</li>
+          </Link>
+          <li>
+            <div className="dropdown">
+              <button className="dropbtn">Categories</button>
 
-                <div className="dropdown-content">
-                  {categories.map((category) => (
-                    <Link to={`/categories/${category.id}`} key={category.id}>
-                      {category.name}
-                    </Link>
-                  ))}
-                </div>
+              <div className="dropdown-content">
+                {categories.map((category) => (
+                  <Link to={`/categories/${category.id}`} key={category.id}>
+                    {category.name}
+                  </Link>
+                ))}
               </div>
-            </li>
-<li className="header-cart">
+            </div>
+          </li>
+          <li className="header-cart">
             <Box px={{ xs: 4 }}>
               <Link to={"/cart"}>
                 <IconButton
@@ -58,16 +57,16 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </IconButton>
               </Link>
             </Box>
-            </li>
-            <li>
-              <button className="logIn-btn" onClick={signOutUser}>
-                LogOut
-              </button>
-            </li>
-          </nav>
-         ) : ( 
-          <header className="signIn-signUp">
-             {/* <Link to={"/signIn"}>
+          </li>
+          <li>
+            <button className="logIn-btn" onClick={signOutUser}>
+              LogOut
+            </button>
+          </li>
+        </nav>
+
+        <header className="signIn-signUp">
+          {/* <Link to={"/signIn"}>
               <button>
                 <li className="signIn-li">
                   SignIn
@@ -82,8 +81,7 @@ export function Header({ currentUser, signOutUser, currentInstructor }: Props) {
                 </li>
                 </button>
               </Link>  */}
-          </header> 
-         )} 
+        </header>
       </ul>
     </div>
   );
