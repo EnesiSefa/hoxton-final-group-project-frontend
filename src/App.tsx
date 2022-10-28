@@ -63,57 +63,69 @@ function App() {
               signInUser(data);
             }
           });
-    } else
-      fetch(`http://localhost:${port}/validate/instructor`, {
-        headers: {
-          Authorization: localStorage.token,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.error) {
-            alert(data.error);
-          } else {
-            signInInstructor(data);
-          }
-          console.log(data);
-        });
+      if (localStorage.user === "instructor") {
+        fetch(`http://localhost:${port}/validate/instructor`, {
+          headers: {
+            Authorization: localStorage.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.error) {
+              alert(data.error);
+            } else {
+              signInInstructor(data);
+            }
+            console.log(data);
+          });
+      }
+    }
   }, []);
   return (
     <div className="App">
-      <Header
+      {/* <Header
         currentUser={currentUser}
         signOutUser={signOutUser}
         currentInstructor={currentInstructor}
-      />
+      /> */}
 
       <Routes>
         <Route index element={<Navigate replace to="/signIn" />} />
 
-       {currentUser && <Route
-          path="/courses"
-          element={
-            <HomePage
-            // signOutUser={signOutUser}
-            // currentUser={currentUser}
-            // currentInstructor={currentInstructor}
-            // commented for the moment
-            />
-          }
-        />} 
-        {currentInstructor && <Route
-          path="/courses"
-          element={
-            <HomePageInstructor
-            // signOutUser={signOutUser}
-            // currentUser={currentUser}
-            // currentInstructor={currentInstructor}
-            // commented for the moment
-            />
-          }
-        />}
+        {currentUser && (
+          <Route
+            path="/courses"
+            element={
+              <HomePage
+                currentUser={currentUser}
+                signOutUser={signOutUser}
+                currentInstructor={currentInstructor}
+              />
+            }
+          />
+        )}
+        {currentInstructor && (
+          <Route
+            path="/coursesInstructor"
+            element={
+              <HomePageInstructor
+                currentInstructor={currentInstructor}
+                signOutUser={signOutUser}
+              />
+            }
+          />
+        )}
 
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <Home
+              currentUser={currentUser}
+              currentInstructor={currentInstructor}
+              signOutUser={signOutUser}
+            />
+          }
+        />
 
         <Route
           path="/course/:id"
